@@ -6,12 +6,12 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/02 06:17:22 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/02 06:22:05 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= push_swap
-
+NSRC= ./src/push_swap.c
 
 PROG= ./src/prog/program.c
 SRC=$(PROG)	
@@ -30,6 +30,9 @@ MAGENTA=\033[1;35m
 ENDC=\033[39m
 
 all: greeting
+
+pushswap:
+	$(CC) $(CFLAG) $(ILIB) $(SRC) $(NSRC) $(LIB) -o push_swap_test
 
 maintest:
 	@printf "$(RED)=======================MAINTEST=======================$(ENDC)\n"
