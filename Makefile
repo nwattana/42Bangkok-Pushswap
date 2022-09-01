@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/02 05:59:26 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/02 06:17:22 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ all: greeting
 maintest:
 	@printf "$(RED)=======================MAINTEST=======================$(ENDC)\n"
 	@make -C ./printf
-	@$(CC) $(CFLAG) $(ILIB) $(SRC) main_test.c $(LIB) -o out
+	@$(CC) $(CFLAG) $(ILIB) $(SRC) main_test.c $(LIB) -o test_main
 
 greeting:
 	@clear
@@ -51,7 +51,7 @@ greeting:
 testlib:
 	@printf "====================================================\n"
 	@make -C ./printf
-	@$(CC) $(CFLAG) $(CLIB) testlib.c $(LIB) -o out
+	@$(CC) $(CFLAG) $(CLIB) testlib.c $(LIB) -o test_lib
 	@printf "$(RED)=======================RESULT=======================$(ENDC)\n"
 	@./out
 	@printf "====================================================\n"
