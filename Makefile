@@ -6,16 +6,21 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/02 04:29:50 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/02 05:59:26 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= push_swap
 
+
+PROG= ./src/prog/program.c
+SRC=$(PROG)	
+
 CC = clang
-CFLAG = -Wall -Wextra -Werror
-CLIB = -iquote ./printf/includes\
-	   -iquote ./printf/libft
+CFLAG = -Wall -Wextra -Werror -g
+ILIB = -iquote ./printf/includes\
+	   -iquote ./printf/libft\
+	   -iquote ./includes
 
 LIB = ./printf/libftprintf.a
 
@@ -26,6 +31,11 @@ ENDC=\033[39m
 
 all: greeting
 
+maintest:
+	@printf "$(RED)=======================MAINTEST=======================$(ENDC)\n"
+	@make -C ./printf
+	@$(CC) $(CFLAG) $(ILIB) $(SRC) main_test.c $(LIB) -o out
+
 greeting:
 	@clear
 	@printf "====================================================\n"
@@ -33,7 +43,7 @@ greeting:
 	@printf "\t$(RED)HELLO!!$(ENDC) Welcome To $(MAGENTA)$(NAME)$(ENDC)\n"
 	@printf "====================================================\n"
 	@printf "====================================================\n"
-	@git log --oneline --graph --all
+	@git log --oneline --graph --all -n10
 	@printf "====================================================\n"
 	@printf "You are on\n" 
 	@git branch
@@ -46,3 +56,5 @@ testlib:
 	@./out
 	@printf "====================================================\n"
 	@-rm out
+
+.PHONY: all maintest greeting testlib

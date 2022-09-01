@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   const_type.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/02 05:57:50 by nwattana         ###   ########.fr       */
+/*   Created: 2022/09/02 05:37:41 by nwattana          #+#    #+#             */
+/*   Updated: 2022/09/02 05:41:31 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef CONST_TYPE_H
+# define CONST_TYPE_H
 
-# include "libftprintf.h"
-# include "const_type.h"
-# include "pstruct.h"
-typedef struct s_prog
-{
-	int		error;
-	UINT	size;
-	t_list	*ta;
-	t_list	*tb;
-}		t_prog;
-
-t_prog		*prog_init(void);
-void		prog_free(t_prog *prog);
+# define UINT unsigned int
+# define ULONG unsigned long
 #endif
