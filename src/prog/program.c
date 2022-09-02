@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:38:10 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/02 05:55:15 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/02 18:10:05 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ t_prog	*prog_init(void)
 
 void	prog_free(t_prog *prog)
 {
-	if (prog)
-		free(prog);
+	free(prog);
 }

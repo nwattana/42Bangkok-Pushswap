@@ -1,32 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   input2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 06:18:59 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/02 18:12:55 by nwattana         ###   ########.fr       */
+/*   Created: 2022/09/02 17:52:15 by nwattana          #+#    #+#             */
+/*   Updated: 2022/09/02 18:08:36 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main(int argc, char *argv[])
-{
-	t_prog	*prog;
+static void	free2d(char **a);
 
-	prog = prog_init();
-	if (argc == 1 || (argc == 2 &&\
-			ft_strlen(argv[1]) == 0) || !prog)
+void	inputstr(char *argv[], t_prog *prog)
+{
+	char	**stra;
+	int		i;
+
+	i = 0;
+	stra = ft_split(argv[1], ' ');
+	if (!stra)
 	{
-		ft_printf("Hello Pushswap\n");
+		prog->error = 1;
+		return ;
 	}
-	else
+	while (stra[i] != NULL && !prog->error)
 	{
-		get_input(argc, argv, prog);
-		ft_printf("Hello Pushswap\n");
+		if (!isstrint(stra[i]))
+		{
+			prog->error = 1;
+		}
+		i++;
 	}
-	prog_free(prog);
-	return (0);
+	free2d(stra);
+}
+
+static void	free2d(char **a)
+{
+	int	i;
+
+	i = 0;
+	if (!a)
+		return ;
+	while (a[i] != NULL)
+	{
+		free(a[i]);
+		i++;
+	}
+	free(a);
 }

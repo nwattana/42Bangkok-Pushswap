@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/02 05:57:50 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/02 18:05:34 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@ typedef struct s_prog
 }		t_prog;
 
 t_prog		*prog_init(void);
-void		prog_free(t_prog *prog);
+void	prog_free(t_prog *prog);
+void	get_input(int argc, char *argv[], t_prog *prog);
+void	inputint(int argc, char *argv[], t_prog *prog);
+void	inputstr(char *argv[], t_prog *prog);
+int		isstrint(char *s);
 #endif

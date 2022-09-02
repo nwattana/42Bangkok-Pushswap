@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/02 06:22:05 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/02 18:00:07 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME= push_swap
 NSRC= ./src/push_swap.c
 
 PROG= ./src/prog/program.c
-SRC=$(PROG)	
+INPUT=./src/input.c ./src/input2.c
+SRC=$(PROG)	$(INPUT)
 
 CC = clang
 CFLAG = -Wall -Wextra -Werror -g
