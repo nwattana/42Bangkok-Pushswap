@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 20:38:50 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/03 21:08:43 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/03 21:15:53 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*pop(t_list **head)
 {
-	t_list	*tmp;
+	t_list	*temp;
 
 	if (!head || !*head)
 		return (NULL);
 	temp = *head;
-	*head = *head->next;
+	*head = (*head)->next;
 	temp->next = NULL;
 	return (temp);
 }
@@ -31,8 +31,7 @@ void	push(t_list **head_ref, t_list *node)
 
 void	px(t_list **from, t_list **to)
 {
-	t_list *tmp1;
-	t_list *tmp2;
+	t_list *tmp;
 
 	tmp = pop(from);
 	push(to, tmp);

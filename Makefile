@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/03 21:10:54 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/03 21:14:12 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ PROG= ./src/prog/program.c
 DEB= ./src/prog/d_prog.c
 CONT = ./src/content.c
 INPUT=./src/input.c ./src/input2.c
-SRC=$(PROG)	$(INPUT) $(DEB) $(CONT)
+SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) $(ACT)
 
 CC = clang
 CFLAG = -Wall -Wextra -Werror -g
