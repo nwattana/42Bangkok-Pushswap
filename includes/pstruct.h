@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/03 16:27:30 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/03 17:47:39 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,12 @@ typedef struct s_st
 	UINT	size;
 }			t_st;
 
+typedef enum e_act
+{
+	none,
+	pa,pb,
+	sa,sb,ss,
+	ra,rb,rr,
+	rra,rrb,rrr
+}		t_act;
 #endif

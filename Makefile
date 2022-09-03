@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/03 16:23:37 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/03 17:39:14 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ pushswap: lib
 maintest:
 	@printf "$(RED)=======================MAINTEST=======================$(ENDC)\n"
 	@make -C ./printf
-	@$(CC) $(CFLAG) $(ILIB) $(SRC) main_test.c $(LIB) -o test_main
+	@$(CC) $(CFLAG) $(ILIB) main_test.c $(LIB) -o test_main
 
 greeting: 
 	@clear
