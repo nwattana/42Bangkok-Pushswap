@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/03 21:14:22 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:21:27 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_prog
 	UINT	size;
 	t_list	*ta;
 	t_list	*tb;
+	t_sres	*sres;
 }		t_prog;
 
 t_prog		*prog_init(void);
@@ -58,5 +59,13 @@ void	px(t_list **h, t_list **x);
 void	swap(t_list **ta);
 void	rx(t_list **ta);
 void	rrx(t_list **ta);
+
+// so small
+t_sres	*init_sres(void);
+void	so_small(t_prog *prog);
+void	sres_do(t_sres *r, t_prog *pro, t_act *a, t_act *b);
+void	add3_sres(t_prog *prog);
+void	aact_a(t_act act, t_prog *prog);
+void	aact_b(t_act act, t_prog *prog);
 #endif
 

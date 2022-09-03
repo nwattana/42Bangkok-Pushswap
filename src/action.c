@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 20:38:50 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/03 21:15:53 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 00:42:21 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ void	push(t_list **head_ref, t_list *node)
 	ft_lstadd_front(head_ref, node);
 }
 
-void	px(t_list **from, t_list **to)
+void	px(t_list **from, t_list **to, int a)
 {
 	t_list *tmp;
 
 	tmp = pop(from);
 	push(to, tmp);
+	if (a == 1)
+		ft_putstr_fd("pa\n", 1);
+	else
+		ft_putstr_fd("pb\n", 1);
 }
 
 void	swap(t_list **ta)

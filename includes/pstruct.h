@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/03 17:47:39 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:18:42 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,13 @@ typedef enum e_act
 	ra,rb,rr,
 	rra,rrb,rrr
 }		t_act;
+
+
+typedef struct s_sres
+{
+	t_act	sta[10];
+	UINT	size_a;
+	t_act	stb[10];
+	UINT	size_b;
+}			t_sres;
 #endif
