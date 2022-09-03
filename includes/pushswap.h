@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/02 18:05:34 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:39:20 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libftprintf.h"
 # include "const_type.h"
 # include "pstruct.h"
+
 typedef struct s_prog
 {
 	int		error;
@@ -26,8 +27,28 @@ typedef struct s_prog
 
 t_prog		*prog_init(void);
 void	prog_free(t_prog *prog);
+
+// input
 void	get_input(int argc, char *argv[], t_prog *prog);
 void	inputint(int argc, char *argv[], t_prog *prog);
 void	inputstr(char *argv[], t_prog *prog);
+void	add_cont(t_prog *prog, char *s);
+void	lst_addback_po(t_list **h, t_list *node, t_prog *p);
 int		isstrint(char *s);
+
+
+// cont
+t_cont *cont_init(int n);
+int		g_cont_po(t_list *lst);
+int		*ga_cont_po(t_list *lst);
+int		g_cont_grp(t_list *lst);
+int		*ga_cont_grp(t_list *lst);
+int		g_cont_data(t_list *lst);
+int		*ga_cont_data(t_list *lst);
+
+
+// debug
+void	dump_p(t_prog *p);
+void	dump_s(t_list *p);
 #endif
+
