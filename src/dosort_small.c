@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 00:52:22 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 06:21:33 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 06:24:50 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void so_small(t_prog *prog)
 	{
 		add_sres(prog);
 		sres_do(prog->sres, prog, prog->sres->sta, prog->sres->stb);
+		free(prog->sres);
 	}
 }
 

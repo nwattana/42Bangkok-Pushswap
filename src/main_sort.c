@@ -1,42 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 06:18:59 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 06:29:18 by nwattana         ###   ########.fr       */
+/*   Created: 2022/09/04 06:23:07 by nwattana          #+#    #+#             */
+/*   Updated: 2022/09/04 06:25:16 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main(int argc, char *argv[])
+void	main_sort(t_prog *prog)
 {
-	t_prog	*prog;
-
-	prog = prog_init();
-	if (argc == 1 || (argc == 2 &&\
-			ft_strlen(argv[1]) == 0) || !prog)
+	if (prog->size == 3)
 	{
-		ft_printf("Something fail\n");
+		so_small(prog);
 	}
-	else
-	{
-		get_input(argc, argv, prog);
-		if (ft_issort(prog->ta))
-			program->error = 2;
-		else
-		{
-			main_sort(prog);	
-		}
-		ft_printf("Hello Do pushswap\n");
-		// pb
-		dump_p(prog);
-		swap(&prog->ta);
-	}
-	dump_p(prog);
-	prog_free(prog);
-	return (0);
 }
