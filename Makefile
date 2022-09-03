@@ -6,16 +6,19 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/02 18:00:07 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/03 16:23:37 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= push_swap
+
 NSRC= ./src/push_swap.c
 
 PROG= ./src/prog/program.c
+DEB= ./src/prog/d_prog.c
+CONT = ./src/content.c
 INPUT=./src/input.c ./src/input2.c
-SRC=$(PROG)	$(INPUT)
+SRC=$(PROG)	$(INPUT) $(DEB) $(CONT)
 
 CC = clang
 CFLAG = -Wall -Wextra -Werror -g
@@ -32,7 +35,7 @@ ENDC=\033[39m
 
 all: greeting
 
-pushswap:
+pushswap: lib
 	$(CC) $(CFLAG) $(ILIB) $(SRC) $(NSRC) $(LIB) -o push_swap_test
 
 maintest:
@@ -40,7 +43,7 @@ maintest:
 	@make -C ./printf
 	@$(CC) $(CFLAG) $(ILIB) $(SRC) main_test.c $(LIB) -o test_main
 
-greeting:
+greeting: 
 	@clear
 	@printf "====================================================\n"
 	@printf "====================================================\n"
@@ -52,7 +55,7 @@ greeting:
 	@printf "You are on\n" 
 	@git branch
 
-testlib:
+testlib: lib
 	@printf "====================================================\n"
 	@make -C ./printf
 	@$(CC) $(CFLAG) $(CLIB) testlib.c $(LIB) -o test_lib
@@ -60,5 +63,8 @@ testlib:
 	@./out
 	@printf "====================================================\n"
 	@-rm out
+
+lib:
+	make -C ./printf
 
 .PHONY: all maintest greeting testlib

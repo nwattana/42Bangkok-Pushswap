@@ -1,24 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   d_prog.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 15:27:52 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/03 15:47:18 by nwattana         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "pushswap.h"
 
 void	dump_p(t_prog *p)
 {
 	ft_printf("size : %d\n", p->size);
+	if (p->error)
+		ft_printf("\033[31merror : %d\033[39m\n", p->error);
 	ft_printf("error : %d\n", p->error);
 	ft_printf("stack_a :");
 	dump_s(p->ta);
-	ft_printf("stack_a :");
+	ft_printf("stack_b :");
 	dump_s(p->tb);
 }
 
