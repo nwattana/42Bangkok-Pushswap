@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/03 17:39:14 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/03 21:10:54 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME= push_swap
 
 NSRC= ./src/push_swap.c
 
+ACT= ./src/action.c
 PROG= ./src/prog/program.c
 DEB= ./src/prog/d_prog.c
 CONT = ./src/content.c
