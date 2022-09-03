@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 17:52:15 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/02 18:08:36 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/03 15:41:37 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	inputstr(char *argv[], t_prog *prog)
 	while (stra[i] != NULL && !prog->error)
 	{
 		if (!isstrint(stra[i]))
-		{
 			prog->error = 1;
-		}
+		else
+			add_cont(prog, stra[i]);
 		i++;
 	}
 	free2d(stra);
