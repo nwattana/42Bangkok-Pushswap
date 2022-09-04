@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 07:50:50 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 11:27:49 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	swap(t_list **ta);
 void	rx(t_list **ta);
 void	rrx(t_list **ta);
 
-// so small main_sort.c dosort_small.c
+// so small main_sort.c dosort_small.c hardcode!!
 t_sres	*init_sres(void);
 void	so_small(t_prog *prog);
 void	sres_do(t_sres *r, t_prog *pro, t_act *a);
@@ -69,5 +69,14 @@ void	aact_a(t_act act, t_prog *prog);
 void	aact_b(t_act act, t_prog *prog);
 void	main_sort(t_prog *prog);
 
+void	small(t_prog *prog);
+void	add_sep(t_prog *prog);
+void	ssort_a(int size, t_prog *s);
+void	ssort_b(int size, t_prog *s);
+int		find_max(t_list *ta, int size);
+void	do_acase(t_list *ta, int max, t_prog *prog);
+void	do_bcase(t_list *ta, int max, t_prog *prog);
+void	merge_act(t_sres *res, t_prog *prog);
+void	action(t_act act, t_prog *pr);
 #endif
 

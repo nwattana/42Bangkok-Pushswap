@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 06:23:07 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 06:25:16 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 12:35:58 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 void	main_sort(t_prog *prog)
 {
-	if (prog->size == 3)
-	{
+	UINT len;
+
+	len = prog->size;
+	if (len == 2)
+		ft_putstr_fd("ra\n", 1);
+	else if (len == 3)
 		so_small(prog);
-	}
+	else if (len <= 6)
+		small(prog);
+	else if (len <= 100)
+		medium(prog);
 }

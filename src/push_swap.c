@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 06:18:59 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 07:56:11 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 12:31:23 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	main(int argc, char *argv[])
 	else
 	{
 		get_input(argc, argv, prog);
-		dump_p(prog);
 		if (issort(prog->ta))
 			prog->error = 2;
 		else
@@ -34,7 +33,6 @@ int	main(int argc, char *argv[])
 		}
 //		ft_printf("Hello Do pushswap\n");
 		// pb
-		dump_p(prog);
 //		swap(&prog->ta);
 	}
 //	dump_p(prog);

@@ -5,20 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 00:52:22 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 07:57:59 by nwattana         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   dosort_small.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 21:42:00 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 00:48:16 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 12:21:52 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +31,8 @@ t_sres	*init_sres(void)
 		return (NULL);
 	sres->size_a = 0;
 	sres->size_b = 0;
+	sres->sta[0] = none;
+	sres->stb[0] = none;
 	return (sres);
 }
 
@@ -125,6 +115,6 @@ void	aact_a(t_act act, t_prog *prog)
 
 void	aact_b(t_act act, t_prog *prog)
 {
-	prog->sres->sta[prog->sres->size_b] = act;
+	prog->sres->stb[prog->sres->size_b] = act;
 	prog->sres->size_b += 1;
 }

@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/04 07:49:13 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/04 12:32:45 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME= push_swap
 
 NSRC= ./src/push_swap.c
 
-ACT= ./src/action.c
+ACT= ./src/action.c ./src/action2.c
 PROG= ./src/prog/program.c
 DEB= ./src/prog/d_prog.c
 CONT = ./src/content.c
 INPUT=./src/input.c ./src/input2.c
 SORT = ./src/main_sort.c ./src/issort.c
-SMALL= ./src/dosort_small.c
+SMALL= ./src/dosort_small.c ./src/small.c
 
 SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) $(ACT) $(SORT) $(SMALL)
 
@@ -67,6 +67,9 @@ testlib: lib
 	@./out
 	@printf "====================================================\n"
 	@-rm out
+
+testps:
+	ARG="5 4 3 1 2"; ./push_swap_test $(ARG) | ./checker_Mac $(ARG)
 
 lib:
 	make -C ./printf
