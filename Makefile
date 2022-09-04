@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/04 06:27:18 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/04 07:49:13 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ PROG= ./src/prog/program.c
 DEB= ./src/prog/d_prog.c
 CONT = ./src/content.c
 INPUT=./src/input.c ./src/input2.c
-SORT = ./src/main_sort.c
+SORT = ./src/main_sort.c ./src/issort.c
 SMALL= ./src/dosort_small.c
 
-SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) $(ACT)
+SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) $(ACT) $(SORT) $(SMALL)
 
 CC = clang
 CFLAG = -Wall -Wextra -Werror -g

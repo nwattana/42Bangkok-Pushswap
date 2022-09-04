@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 00:52:22 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 06:24:50 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/04 07:57:59 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_sres	*init_sres(void)
 	if (!sres)
 		return (NULL);
 	sres->size_a = 0;
-	srez->size_b = 0;
+	sres->size_b = 0;
 	return (sres);
 }
 
@@ -53,20 +53,20 @@ void so_small(t_prog *prog)
 		prog->error = 1;
 	if (!prog->error)
 	{
-		add_sres(prog);
-		sres_do(prog->sres, prog, prog->sres->sta, prog->sres->stb);
+		add3_sres(prog);
+		sres_do(prog->sres, prog, prog->sres->sta);
 		free(prog->sres);
 	}
 }
 
-void	sres_do(t_sres *res, t_prog *prog, t_act *a, t_act *b)
+void	sres_do(t_sres *res, t_prog *prog, t_act *a)
 {
 	UINT	i;
 
 	i = 0;
-	if (res->size_a == 0 && res->size == 0)
+	if (res->size_a == 0 && res->size_b == 0)
 			return ;
-	while (i < size_a)
+	while (i < res->size_a)
 	{
 		if (a[i] == sa)
 		{
@@ -83,6 +83,7 @@ void	sres_do(t_sres *res, t_prog *prog, t_act *a, t_act *b)
 			rrx(&prog->ta);
 			ft_putstr_fd("rra\n", 1);
 		}
+		i++;
 	}
 }
 
@@ -110,7 +111,7 @@ void	add3_sres(t_prog *prog)
 		else
 		{
 			aact_a(sa, prog);
-			aact_a(ra, prog);
+			aact_a(rra, prog);
 		}
 	}
 	aact_a(none, prog);
