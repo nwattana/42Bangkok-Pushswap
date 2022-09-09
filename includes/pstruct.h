@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 12:17:13 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/09 20:13:39 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,17 @@ typedef struct s_sres
 	t_act	stb[10];
 	UINT	size_b;
 }			t_sres;
+
+typedef struct	s_msort
+{
+	int		ngrp;
+	int		*bo;
+	int		*way;
+	int		*ata;
+	int		size_a;
+	int		*atb;
+	int		size_b;
+
+}		t_msort;
+
 #endif

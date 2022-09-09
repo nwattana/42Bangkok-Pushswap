@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 11:27:49 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/09 00:38:23 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_prog
 	t_list	*ta;
 	t_list	*tb;
 	t_sres	*sres;
+	t_msort *msort;
+
 }		t_prog;
 
 t_prog		*prog_init(void);
