@@ -35,73 +35,6 @@ void	medium(t_prog *prog)
  *
  */
 
-void	cal_way(t_prog *prog, t_msort *st)
-{
-	t_list	temp;
-	int		count_elim;
-	int		count_start;
-
-	i = 0;
-	ind = 0;
-	while (i < st->ngrp)
-	{
-		counting start = 1;
-		count_elim = prog->ngrp; 
-		while (temp)
-		{
-			if (!ind && s_cal_way(temp, i))
-				ind = 1;
-			if (ind && s_cal_way(temp, i))
-				count_elim--;
-			if (ind)
-				st->way[i] = st->way[i] + 1;
-			temp = temp->next;
-		}
-	}
-}
-
-// PRINT ARRAY INT
-void	put_inttab(int *a, int size)
-{
-	int		i;
-
-	if (!a)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		ft_putnbr_fd(*a, 1);
-		a++;
-		i--;
-	}
-}
-
-static int	s_cal_way(t_list *ls, i, int bo)
-{
-	int	upper;
-	int lowwer;
-
-	upper = bo[i];
-	if (i == 0)
-		lowwer = 0;
-	else
-		lowwer = bo[i - 1];
-	return (g_cont_po(ls) > lowwer \
-		&& g_cont_po(ls) <= upper);
-}
-
-void	get_middle(t_msort *sort, int ch_bo)
-{
-	int		i;
-
-	i = 0;
-	while (i < 8)
-	{
-		sort->bo[i] = ch_bo * i;
-		i++;
-	}
-}
-
 t_msort	*init_msort(int n)
 {
 	t_msort	*res;
@@ -111,7 +44,7 @@ t_msort	*init_msort(int n)
 	res = malloc(sizeof(t_msort));
 	if (!res)
 		return (NULL);
-	res->bo = ft_calloc(sizeof(int) * n);
+	res->bo = ft_calloc(sizeof(int) , n);
 	res->way = ft_calloc(sizeof(int) , n);
 	res->ngrp = n;
 	if (!res->bo || !res->way)
@@ -125,4 +58,5 @@ t_msort	*init_msort(int n)
 	}
 	return (res);
 }
+
 
