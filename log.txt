@@ -1,0 +1,117 @@
+res->ngrp 5
+Med
+5, 10, 15, 20, 21, 
+chunk no. 0
+pb
+pb
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+chunk no. 1
+pb
+pb
+pb
+pb
+ra
+pb
+chunk no. 2
+pb
+pb
+pb
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+pb
+chunk no. 3
+pb
+pb
+pb
+pb
+chunk no. 4
+res->ngrp 7
+Med
+5, 10, 15, 20, 25, 30, 31, 
+chunk no. 0
+pb
+pb
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+chunk no. 1
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+pb
+pb
+pb
+pb
+chunk no. 2
+pb
+pb
+pb
+pb
+pb
+chunk no. 3
+pb
+pb
+pb
+pb
+pb
+chunk no. 4
+pb
+pb
+pb
+pb
+pb
+chunk no. 5
+pb
+pb
+ra
+pb
+pb
+chunk no. 6
