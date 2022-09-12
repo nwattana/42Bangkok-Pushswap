@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/12 18:33:43 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/12 19:05:08 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,21 @@ NAME= push_swap
 
 NSRC= ./src/push_swap.c
 
-ACT= ./src/action.c ./src/action2.c
+ACT= ./src/act/action.c ./src/act/action2.c
 PROG= ./src/prog/program.c
-DEB= ./src/prog/d_prog.c ./src/put_aint.c
-CONT = ./src/content.c
-INPUT=./src/input.c ./src/input2.c
-SORT = ./src/main_sort.c ./src/issort.c
-SMALL= ./src/dosort_small.c ./src/small.c
 
-SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) $(ACT) $(SORT) $(SMALL)
+DEB= ./src/prog/d_prog.c ./src/put_aint.c
+CONT = ./src/content/content.c
+
+INPUT=./src/input/input.c ./src/input/input2.c
+SORT = ./src/main_sort.c ./src/issort.c
+
+SMALL= ./src/small/dosort_small.c ./src/small/small.c
+MED = ./src/med/medium.c
+
+SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) \
+	$(ACT) $(SORT) $(SMALL) \
+	$(MED)
 
 CC = clang
 CFLAG = -Wall -Wextra -Werror -g

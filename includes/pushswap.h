@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/12 18:33:16 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/12 19:03:48 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 typedef struct s_prog
 {
 	int		error;
-	UINT	size;
+	int		size;
 	t_list	*ta;
 	t_list	*tb;
 	t_sres	*sres;
-	t_msort *msort;
+	t_ms *ms;
 
 }		t_prog;
 
@@ -81,5 +81,12 @@ void	do_acase(t_list *ta, int max, t_prog *prog);
 void	do_bcase(t_list *ta, int max, t_prog *prog);
 void	merge_act(t_sres *res, t_prog *prog);
 void	action(t_act act, t_prog *pr);
+// med
+
+void	medium(t_prog *prog);
+void	update_arr(t_list *ta, t_list *tb, t_ms *ms);
+void	creat_bo(t_ms *ms, int cs, t_prog *prog);
+t_ms	*init_ms(int size, int cs);
+void	clear_ms(t_ms *ms);
 #endif
 
