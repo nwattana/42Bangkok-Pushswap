@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/04 12:32:45 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/12 18:33:43 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NSRC= ./src/push_swap.c
 
 ACT= ./src/action.c ./src/action2.c
 PROG= ./src/prog/program.c
-DEB= ./src/prog/d_prog.c
+DEB= ./src/prog/d_prog.c ./src/put_aint.c
 CONT = ./src/content.c
 INPUT=./src/input.c ./src/input2.c
 SORT = ./src/main_sort.c ./src/issort.c
