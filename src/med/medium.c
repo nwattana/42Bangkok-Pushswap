@@ -43,7 +43,7 @@ void	put_chunk(t_prog *prog, t_ms *ms)
 		ft_printf("chunk no. %d\n", i);
 		size_b = ms->csi * (i + 1) - 1;
 		while (ft_lstsize(prog->tb) < size_b\
-				&& ft_lstsize(prog->ta) > 3)
+				&& ft_lstsize(prog->ta) > 1)
 		{
 			if (inlen(prog, ms, i))
 				action(pb, prog);
