@@ -1,60 +1,27 @@
-res->ngrp 5
-Med
-5, 10, 15, 20, 21, 
-chunk no. 0
+res->ngrp 3
+8, 16, 21, 
 pb
+rr
 pb
+rr
 pb
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
-ra
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
 pb
-chunk no. 1
-pb
-pb
-pb
-pb
-ra
-pb
-chunk no. 2
-pb
-pb
-pb
-ra
-ra
-pb
-ra
-ra
-ra
-ra
-ra
-pb
-chunk no. 3
-pb
-pb
-pb
-pb
-chunk no. 4
-res->ngrp 7
-Med
-5, 10, 15, 20, 25, 30, 31, 
-chunk no. 0
-pb
-pb
+rr
 pb
 ra
 ra
@@ -71,10 +38,7 @@ ra
 ra
 ra
 ra
-ra
-ra
 pb
-chunk no. 1
 ra
 ra
 ra
@@ -85,33 +49,252 @@ ra
 ra
 ra
 ra
-pb
-pb
-pb
-pb
-pb
-chunk no. 2
-pb
-pb
-pb
-pb
-pb
-chunk no. 3
-pb
-pb
-pb
-pb
-pb
-chunk no. 4
-pb
-pb
-pb
-pb
-pb
-chunk no. 5
-pb
+ra
+ra
+ra
+ra
+ra
 pb
 ra
 pb
+ra
 pb
-chunk no. 6
+ra
+pb
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+ngrp 3
+
+chunk : 7, 8, 4, 
+21
+size : 21
+error : 0
+stack_a :16->21
+stack_b :19->17->20->18->15->9->13->8->14->12->11->10->5->3->7->6->4->2->1
+res->ngrp 4
+8, 16, 24, 31, 
+pb
+rr
+pb
+rr
+pb
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+pb
+rr
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+ra
+pb
+ra
+ngrp 4
+ss
+pa
+pa
+
+chunk : 7, 8, 8, 4, 
+31
+size : 31
+error : 0
+stack_a :24->28->29->31
+stack_b :27->26->30->25->23->19->20->16->22->21->18->17->14->10->12->9->15->13->11->8->5->7->3->6->2->4->1
+
+error: 20 74 83 5 91 35 60 6 56 13 19 51 66 79 70 43 16 40 59 50 17 46 15 32 61 82 48 18 14 90 47 10 2 94 52 78 76 44 72 23 81 92 33 96 27 55 21 99 87 41 68 100 25 29 37 26 62 65 88 31 53 11 4 98 45 22 30 38 89 64 12 34 63 36 77 71 8 93 49 9 95 39 54 97 84 57 7 24 75 28 67 80 69 85 42 3 86 58 73 
+
+new: 56 74 70 22 97 17 62 2 67 50 25 26 24 30 40 61 88 51 33 19 57 65 29 72 96 21 95 43 59 68 9 10 28 82 4 85 13 49 60 31 81 98 79 3 64 55 84 11 54 7 36 76 63 91 52 77 93 37 44 23 69 34 42 89 14 73 5 12 71 78 27 83 38 46 66 8 15 39 94 35 53 6 100 80 20 58 86 45 18 87 92 48 47 75 32 90 99 16 41 
+

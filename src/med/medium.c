@@ -28,8 +28,7 @@ void	medium(t_prog *prog)
 		creat_bo(ms, cs, prog->size);
 		put_aint(ms->bo, ms->ngrp);
 		put_chunk(prog, ms);
-		ft_putstr_fd("\nchunk : " ,1);
-		ft_printf("ngrp %d\n", ms->ngrp);
+	//	ft_printf("ngrp %d\n", ms->ngrp);
 		if (g_cont_po(prog->ta->next) != prog->size)
 		{
 			if(g_cont_po(prog->tb) < g_cont_po(prog->tb->next))
@@ -37,12 +36,14 @@ void	medium(t_prog *prog)
 			else
 				action(sa,prog);
 		}
+	//	ft_putstr_fd("no error\n", 1);
 		while (g_cont_po(prog->ta) > g_cont_po(prog->tb))
 		{
 			ms->cma[ms->ngrp - 1] -= 1;
 			action(pa,prog);
 		}
-		put_aint(ms->cma, ms->ngrp);
+	//	put_aint(ms->cma, ms->ngrp);
+	//	throw_back(ms, prog);
 	}
 }
 
@@ -74,6 +75,7 @@ void	put_chunk(t_prog *prog, t_ms *ms)
 }
 
 // chunk size <= 8
+// size = remain element in chunk are in b
 void	throw_back(t_ms *ms, t_prog *prog)
 {
 	int	ind;
@@ -84,15 +86,39 @@ void	throw_back(t_ms *ms, t_prog *prog)
 	while (ind >= 0)
 	{
 		pass = 0;
-		size = ms->way[ind];
+		size = ms->bo[ind];
 		while (size > 0 || pass)
 		{
-
+			update_arr(prog->ta, prog->tb, ms);
 			size--;
+			break;
 		}
 		ind--;
+		break;
 	}
-	ft_printf("%d\n", prog->size);
+}
+
+void	read_remain(int size, t_ms *ms, t_prog *prog)
+{
+	int		i;
+	t_list	*temp;
+
+	i = 0;
+	temp = prog->ta;
+	while (temp)
+	{
+		ms->ata[i++] = g_cont_po(temp);
+		temp = temp->next;
+	}
+	ms->size_a = i;
+	i = 0;
+	temp = prog->tb;
+	while (temp && size--)
+	{
+		ms->atb[i++] = g_cont_po(temp);
+		temp = temp->next;
+	}
+	ms->size_b = i;
 }
 
 int	inlen(t_prog *pr, t_ms *ms, int ind)
@@ -160,11 +186,11 @@ t_ms	*init_ms(int size, int cs)
 	ng = size / cs + (size % cs != 0);
 	res->ngrp = ng;
 	ft_printf("res->ngrp %d\n", res->ngrp);
-	res->bo = ft_calloc(sizeof(int) , ng);
-	res->way = ft_calloc(sizeof(int) , ng);
-	res->cma = ft_calloc(sizeof(int) , ng);
-	res->ata = ft_calloc(sizeof(int) , size);
-	res->atb = ft_calloc(sizeof(int) , size);
+	res->bo = ft_calloc(sizeof(int), ng);
+	res->way = ft_calloc(sizeof(int), cs);
+	res->cma = ft_calloc(sizeof(int), ng);
+	res->ata = ft_calloc(sizeof(int), size);
+	res->atb = ft_calloc(sizeof(int), size);
 	if (!res->bo || !res->way || !res->ata || !res->atb ||!res->cma)
 	{
 		clear_ms(res);

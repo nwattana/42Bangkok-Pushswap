@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/13 01:12:00 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/14 22:44:34 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	creat_bo(t_ms *ms, int cs, int size);
 t_ms	*init_ms(int size, int cs);
 void	clear_ms(t_ms *ms);
 int		inlen(t_prog *ps, t_ms *ms, int ind);
-void		put_chunk(t_prog *prog, t_ms *ms);
+void	put_chunk(t_prog *prog, t_ms *ms);
+void	read_remain(int size, t_ms *ms, t_prog *prog);
+void	throw_back(t_ms *ms, t_prog *prog);
 #endif
 
