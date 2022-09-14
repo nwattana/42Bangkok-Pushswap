@@ -14,7 +14,6 @@
 /// chunksize = 10;
 void	medium(t_prog *prog)
 {
-
 	int		cs;
 	t_ms	*ms;
 
@@ -29,6 +28,21 @@ void	medium(t_prog *prog)
 		creat_bo(ms, cs, prog->size);
 		put_aint(ms->bo, ms->ngrp);
 		put_chunk(prog, ms);
+		ft_putstr_fd("\nchunk : " ,1);
+		ft_printf("ngrp %d\n", ms->ngrp);
+		if (g_cont_po(prog->ta->next) != prog->size)
+		{
+			if(g_cont_po(prog->tb) < g_cont_po(prog->tb->next))
+				action(ss, prog);
+			else
+				action(sa,prog);
+		}
+		while (g_cont_po(prog->ta) > g_cont_po(prog->tb))
+		{
+			ms->cma[ms->ngrp - 1] -= 1;
+			action(pa,prog);
+		}
+		put_aint(ms->cma, ms->ngrp);
 	}
 }
 
@@ -40,13 +54,15 @@ void	put_chunk(t_prog *prog, t_ms *ms)
 	i = 0;
 	while (i < ms->ngrp)
 	{
-		ft_printf("chunk no. %d\n", i);
 		size_b = ms->csi * (i + 1) - 1;
 		while (ft_lstsize(prog->tb) < size_b\
-				&& ft_lstsize(prog->ta) > 1)
+				&& ft_lstsize(prog->ta) > 2)
 		{
 			if (inlen(prog, ms, i))
+			{
 				action(pb, prog);
+				ms->cma[i] += 1;
+			}
 			if (i == 0 && 
 				g_cont_po(ft_lstlast(prog->tb)) != 1)
 				action(rr,prog);
@@ -55,6 +71,28 @@ void	put_chunk(t_prog *prog, t_ms *ms)
 		}
 		i++;
 	}
+}
+
+// chunk size <= 8
+void	throw_back(t_ms *ms, t_prog *prog)
+{
+	int	ind;
+	int	size;
+	int pass;
+
+	ind = ms->ngrp - 1;
+	while (ind >= 0)
+	{
+		pass = 0;
+		size = ms->way[ind];
+		while (size > 0 || pass)
+		{
+
+			size--;
+		}
+		ind--;
+	}
+	ft_printf("%d\n", prog->size);
 }
 
 int	inlen(t_prog *pr, t_ms *ms, int ind)
@@ -124,9 +162,10 @@ t_ms	*init_ms(int size, int cs)
 	ft_printf("res->ngrp %d\n", res->ngrp);
 	res->bo = ft_calloc(sizeof(int) , ng);
 	res->way = ft_calloc(sizeof(int) , ng);
+	res->cma = ft_calloc(sizeof(int) , ng);
 	res->ata = ft_calloc(sizeof(int) , size);
 	res->atb = ft_calloc(sizeof(int) , size);
-	if (!res->bo || !res->way || !res->ata || !res->atb)
+	if (!res->bo || !res->way || !res->ata || !res->atb ||!res->cma)
 	{
 		clear_ms(res);
 		return (NULL);
