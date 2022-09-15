@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:33:04 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/15 16:20:15 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/16 01:00:15 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	medium(t_prog *prog)
 	{
 		creat_bo(ms, cs, prog->size);
 		put_aint(ms->bo, ms->ngrp);
+
 	}
 }
 
