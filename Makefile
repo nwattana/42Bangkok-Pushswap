@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/12 19:05:08 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/15 16:29:49 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INPUT=./src/input/input.c ./src/input/input2.c
 SORT = ./src/main_sort.c ./src/issort.c
 
 SMALL= ./src/small/dosort_small.c ./src/small/small.c
-MED = ./src/med/medium.c
+MED = ./src/med/medium.c ./src/med/chunk.c
 
 SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) \
 	$(ACT) $(SORT) $(SMALL) \
