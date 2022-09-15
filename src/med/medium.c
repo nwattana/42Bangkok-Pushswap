@@ -1,11 +1,12 @@
-
+/* ************************************************************************** */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:33:04 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/08 00:01:21 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:01:23 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +19,6 @@ void	medium(t_prog *prog)
 	t_ms	*ms;
 
 	cs = 8;
-	// initer sorter m - mem
 	ms = init_ms(prog->size , cs);
 	prog->ms = ms;
 	if (!prog->ms)
@@ -27,136 +27,7 @@ void	medium(t_prog *prog)
 	{
 		creat_bo(ms, cs, prog->size);
 		put_aint(ms->bo, ms->ngrp);
-		put_chunk(prog, ms);
-	//	ft_printf("ngrp %d\n", ms->ngrp);
-		if (g_cont_po(prog->ta->next) != prog->size)
-		{
-			if(g_cont_po(prog->tb) < g_cont_po(prog->tb->next))
-				action(ss, prog);
-			else
-				action(sa,prog);
-		}
-	//	ft_putstr_fd("no error\n", 1);
-		while (g_cont_po(prog->ta) > g_cont_po(prog->tb))
-		{
-			ms->cma[ms->ngrp - 1] -= 1;
-			action(pa,prog);
-		}
-	//	put_aint(ms->cma, ms->ngrp);
-	//	throw_back(ms, prog);
 	}
-}
-
-void	put_chunk(t_prog *prog, t_ms *ms)
-{
-	int	i;
-	int	size_b;
-
-	i = 0;
-	while (i < ms->ngrp)
-	{
-		size_b = ms->csi * (i + 1) - 1;
-		while (ft_lstsize(prog->tb) < size_b\
-				&& ft_lstsize(prog->ta) > 2)
-		{
-			if (inlen(prog, ms, i))
-			{
-				action(pb, prog);
-				ms->cma[i] += 1;
-			}
-			if (i == 0 && 
-				g_cont_po(ft_lstlast(prog->tb)) != 1)
-				action(rr,prog);
-			else
-				action(ra, prog);
-		}
-		i++;
-	}
-}
-
-// chunk size <= 8
-// size = remain element in chunk are in b
-void	throw_back(t_ms *ms, t_prog *prog)
-{
-	int	ind;
-	int	size;
-	int pass;
-
-	ind = ms->ngrp - 1;
-	while (ind >= 0)
-	{
-		pass = 0;
-		size = ms->bo[ind];
-		while (size > 0 || pass)
-		{
-			update_arr(prog->ta, prog->tb, ms);
-			size--;
-			break;
-		}
-		ind--;
-		break;
-	}
-}
-
-void	read_remain(int size, t_ms *ms, t_prog *prog)
-{
-	int		i;
-	t_list	*temp;
-
-	i = 0;
-	temp = prog->ta;
-	while (temp)
-	{
-		ms->ata[i++] = g_cont_po(temp);
-		temp = temp->next;
-	}
-	ms->size_a = i;
-	i = 0;
-	temp = prog->tb;
-	while (temp && size--)
-	{
-		ms->atb[i++] = g_cont_po(temp);
-		temp = temp->next;
-	}
-	ms->size_b = i;
-}
-
-int	inlen(t_prog *pr, t_ms *ms, int ind)
-{
-	int	up;
-	int low;
-	int	num;
-
-	num = g_cont_po(pr->ta);
-	if (ind == 0)
-		low = 1;
-	else
-		low = ms->bo[ind - 1];
-	up = ms->bo[ind];
-	return (num >= low && num < up);
-}
-
-
-void	update_arr(t_list *ta, t_list *tb, t_ms *ms)
-{
-	int		i;
-
-	i = 0;
-	while (ta)
-	{
-		ms->ata[i] = g_cont_po(ta);
-		ta = ta->next;
-		i++;
-	}
-	ms->size_a = i;
-	i = 0;
-	while (tb)
-	{
-		ms->atb[i] = g_cont_po(tb);
-		tb = tb->next;
-		i++;
-	}
-	ms->size_b = i;
 }
 
 void	creat_bo(t_ms *ms, int cs, int size)
@@ -187,11 +58,9 @@ t_ms	*init_ms(int size, int cs)
 	res->ngrp = ng;
 	ft_printf("res->ngrp %d\n", res->ngrp);
 	res->bo = ft_calloc(sizeof(int), ng);
-	res->way = ft_calloc(sizeof(int), cs);
-	res->cma = ft_calloc(sizeof(int), ng);
 	res->ata = ft_calloc(sizeof(int), size);
 	res->atb = ft_calloc(sizeof(int), size);
-	if (!res->bo || !res->way || !res->ata || !res->atb ||!res->cma)
+	if (!res->bo || !res->ata || !res->atb)
 	{
 		clear_ms(res);
 		return (NULL);
@@ -205,10 +74,6 @@ void	clear_ms(t_ms *ms)
 		return ;
 	if (ms->bo)
 		free(ms->bo);
-	if (ms->way)
-		free(ms->way);
-	if (ms->to_f)
-		free(ms->to_f);
 	if (ms->ata)
 		free(ms->ata);
 	if (ms->atb)

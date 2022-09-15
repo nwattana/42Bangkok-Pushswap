@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/14 22:25:45 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:00:23 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,23 @@ typedef struct s_sres
 }			t_sres;
 
 
+// rts = rotate side
+// ff = found first
+// lf = last found
+typedef struct	s_ch
+{
+	int	ff;
+	int	lf;
+	int	rts;
+	int	upper;
+	int	lower;
+	int	cact;
+	int	tob;
+	int toa;
+	int	passb;
+	int	passa;
+}			t_ch;
+
 // csi base chunk size 
 // ngrp chunk amount
 // bo chunk boundery
@@ -79,12 +96,9 @@ typedef struct	s_msort
 {
 	int		csi;
 	int		ngrp;
-
 	int		*bo;
-	int		*to_f;
-	int		*way;
-	int		*cma;
 
+	t_ch	*ch;
 	int		*ata;
 	int		size_a;
 	int		*atb;
