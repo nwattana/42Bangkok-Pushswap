@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:23:39 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/03 17:23:42 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:45:50 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,19 @@ void	dump_p(t_prog *p)
 	if (p->error)
 		ft_printf("\033[31merror : %d\033[39m\n", p->error);
 	ft_printf("error : %d\n", p->error);
-	ft_printf("stack_a :");
+	ft_printf("stack_a : ");
 	dump_s(p->ta);
-	ft_printf("stack_b :");
+	ft_printf("stack_b : ");
 	dump_s(p->tb);
 }
 
 void	dump_s(t_list *st)
 {
+	if (!st)
+	{
+		ft_putstr_fd("Empty\n",1);
+		return ;
+	}
 	while (st)
 	{
 		ft_printf("%d",g_cont_po(st));
