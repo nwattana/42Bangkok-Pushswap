@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/15 16:42:22 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/16 17:41:03 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		*ga_cont_data(t_list *lst);
 // debug
 void	dump_p(t_prog *p);
 void	dump_s(t_list *p);
+void	dump_node(t_list *p);
 void	put_aint(int *nu, int size);
 
 // action
@@ -88,7 +89,6 @@ void	update_arr(t_list *ta, t_list *tb, t_ms *ms);
 void	creat_bo(t_ms *ms, int cs, int size);
 t_ms	*init_ms(int size, int cs);
 void	clear_ms(t_ms *ms);
-int		inlen(t_prog *ps, t_ms *ms, int ind);
 void	put_chunk(t_prog *prog, t_ms *ms);
 
 // chunk

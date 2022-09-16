@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/15 16:34:42 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:30:39 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,12 @@ typedef struct	s_ch
 	int	ff;
 	int	lf;
 	int	rts;
-	int	upper;
-	int	lowwer;
+
+	int	up;
+	int	low;
+	int m_amount;
+	int	index;
+
 	int	cact;
 	int	tob;
 	int toa;

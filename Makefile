@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/15 16:29:49 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/16 13:12:35 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) \
 	$(MED)
 
 CC = clang
-CFLAG = -Wall -Wextra -Werror -g
+CFLAG = 
 ILIB = -iquote ./printf/includes\
 	   -iquote ./printf/libft\
 	   -iquote ./includes

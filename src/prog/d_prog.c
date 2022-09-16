@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:23:39 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/15 16:45:50 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/16 17:46:29 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ void	dump_p(t_prog *p)
 	dump_s(p->ta);
 	ft_printf("stack_b : ");
 	dump_s(p->tb);
+}
+
+void	dump_node(t_list *st)
+{
+	if(!st)
+		return ;
+	ft_printf("PO : %d\n", g_cont_po(st));
+	ft_printf("Value : %d\n", g_cont_data(st));
+	ft_printf("grp : %d\n", g_cont_grp(st));
 }
 
 void	dump_s(t_list *st)
