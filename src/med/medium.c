@@ -6,11 +6,13 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:33:04 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/16 18:02:47 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/17 03:45:44 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+void	l_action(t_act act, int n, t_prog *prog);
+int	count_rb(int ind, t_prog *prog, t_ms *ms);
 void	add_grp(t_ms *ms, t_prog *prog);
 int		in_ch(int po, t_ms *ms);
 void	boundery(int size, t_ch *ch, int *bo);
@@ -18,7 +20,7 @@ void	update_ch(t_ms *ms, t_prog *prog);;
 int		inlen_new(int i, t_ch ch, int found);
 void	ff_lf_intx(t_ms *ms, t_list *list, int i);
 int		min_lf(t_ms *ms, int a, int b);
-void	throw_b(int min, t_ms *ms, t_prog *prog);
+void	throw_b(int min, t_ms *ms, t_prog *prog, int n);
 
 void	medium(t_prog *prog)
 {
@@ -39,12 +41,14 @@ void	medium(t_prog *prog)
 	//	show_ch_all(ms->ch, ms->ngrp); // put array int
 		int	need_rb;
 		int te;
+		int	rrb_c;
 
 		te = 0;
 		while (te < ms->ngrp)
 		{
 			min_i = min_lf(ms, prog->size, 0);
-			throw_b(min_i, ms, prog);
+			need_rb = count_rb(min_i, prog, ms);
+			throw_b(min_i, ms, prog, need_rb);
 			ff_lf_intx(ms, prog->ta, 0);
 			te++;
 		//	ft_printf("min_i = %d\n", min_i);
@@ -52,7 +56,35 @@ void	medium(t_prog *prog)
 	}
 }
 
-void	throw_b(int ind, t_ms *ms, t_prog *prog)
+int	count_rb(int ind, t_prog *prog, t_ms *ms)
+{
+	int		res;
+	int		prev;
+	int		next;
+	int		size;
+	t_list	*temp;
+
+	res = 0;
+	size = ft_lstsize(prog->tb);
+	if (!prog->tb)
+		return (0);
+	temp = prog->tb;
+	while (temp && res < size)
+	{
+		prev = g_cont_grp(temp);
+		temp = temp->next;
+		if (temp)
+			next = g_cont_grp(temp);
+		if (ind > prev && ind < next)
+			break;
+		res++;
+	}
+	if (res == size)
+		return (0);
+	return (res);
+}
+
+void	throw_b(int ind, t_ms *ms, t_prog *prog, int need_rb)
 {
 	t_ch	ch;
 	int		po;
@@ -65,15 +97,40 @@ void	throw_b(int ind, t_ms *ms, t_prog *prog)
 		po = g_cont_po(prog->ta);
 		if (po >= ch.low && po < ch.up)
 		{
+			l_action(rb, need_rb, prog);
+			need_rb = 0;
 			action(pb, prog);
 			stop--;
+		}
+		else if (need_rb)
+		{
+			action(rr, prog);
+			need_rb--;
 		}
 		else
 		{
 			action(ra, prog);
 		}
+		ft_putstr_fd("ta: ",1);
+		dump_g(prog->ta);
+		ft_putstr_fd("\n",1);
+		ft_putstr_fd("tb: ",1);
+		dump_g(prog->tb);
+		ft_putstr_fd("\n",1);
 	}
 	ms->ch[ind].tob = 1;
+}
+
+void	l_action(t_act act, int n, t_prog *prog)
+{
+	int	i;
+
+	i = 0;
+	while(i <= n)
+	{
+		action(act, prog);
+		i++;
+	}
 }
 
 void	update_ch(t_ms *ms, t_prog *prog)
@@ -117,8 +174,8 @@ int	in_ch(int po, t_ms *ms)
 
 int		min_lf(t_ms *ms, int size, int i)
 {
-	int	min;
-	int	res_i;
+	int		min;
+	int		res_i;
 
 	min = size + 1;
 	res_i = -1;

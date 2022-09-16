@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:23:39 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/16 17:46:29 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/17 01:55:42 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ void	dump_node(t_list *st)
 	ft_printf("PO : %d\n", g_cont_po(st));
 	ft_printf("Value : %d\n", g_cont_data(st));
 	ft_printf("grp : %d\n", g_cont_grp(st));
+}
+
+void	dump_g(t_list *st)
+{
+	if (!st)
+	{
+		ft_putstr_fd("Empty\n", 1);
+		return ;
+	}
+	while (st)
+	{
+		ft_printf("%d =>",g_cont_grp(st));
+		st = st->next;
+	}
 }
 
 void	dump_s(t_list *st)

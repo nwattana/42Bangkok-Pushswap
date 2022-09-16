@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/16 17:41:03 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/17 01:56:24 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		*ga_cont_data(t_list *lst);
 // debug
 void	dump_p(t_prog *p);
 void	dump_s(t_list *p);
+void	dump_g(t_list *p);
 void	dump_node(t_list *p);
 void	put_aint(int *nu, int size);
 
