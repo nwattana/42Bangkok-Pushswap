@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/17 01:56:24 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:18:04 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	px(t_list **h, t_list **x);
 void	swap(t_list **ta);
 void	rx(t_list **ta);
 void	rrx(t_list **ta);
+void	l_action(t_act act, int times, t_prog *prog);
 
 // so small main_sort.c dosort_small.c hardcode!!
 t_sres	*init_sres(void);
@@ -83,6 +84,9 @@ void	do_acase(t_list *ta, int max, t_prog *prog);
 void	do_bcase(t_list *ta, int max, t_prog *prog);
 void	merge_act(t_sres *res, t_prog *prog);
 void	action(t_act act, t_prog *pr);
+// chunk
+void	show_ch_all(t_ch *ch, int size);
+void	show_ch_i(t_ch *ch, int index);
 // med
 
 void	medium(t_prog *prog);
@@ -92,10 +96,11 @@ t_ms	*init_ms(int size, int cs);
 void	clear_ms(t_ms *ms);
 void	put_chunk(t_prog *prog, t_ms *ms);
 
-// chunk
-void	show_ch_all(t_ch *ch, int size);
-void	show_ch_i(t_ch *ch, int index);
-
+void	a_to_b(t_ms *ms, t_prog *prog);
+void	boundery(int size, t_ch *ch, int *bo);
+void	ff_lf_intx(t_ms *ms, t_list *tx, int i);
+int		count_rb(int ind, t_prog *prog, t_ms *ms);
+int		inlen_new(int i, t_ch ch, int founded);
 
 
 #endif

@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/16 13:12:35 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/18 20:25:07 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME= push_swap
 
 NSRC= ./src/push_swap.c
 
-ACT= ./src/act/action.c ./src/act/action2.c
+ACT= ./src/act/action.c ./src/act/action2.c \
+	 ./src/act/l_action.c
 PROG= ./src/prog/program.c
 
 DEB= ./src/prog/d_prog.c ./src/put_aint.c
@@ -24,7 +25,10 @@ INPUT=./src/input/input.c ./src/input/input2.c
 SORT = ./src/main_sort.c ./src/issort.c
 
 SMALL= ./src/small/dosort_small.c ./src/small/small.c
-MED = ./src/med/medium.c ./src/med/chunk.c
+MED = ./src/med/medium.c ./src/med/chunk.c \
+	  ./src/med/a_to_b.c ./src/med/boundery.c \
+	  ./src/med/count_rb.c ./src/med/ff_lf_inx.c \
+	  ./src/med/ft_ms.c
 
 SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) \
 	$(ACT) $(SORT) $(SMALL) \

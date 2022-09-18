@@ -6,27 +6,19 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:33:04 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/17 03:45:44 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/18 20:21:02 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-void	l_action(t_act act, int n, t_prog *prog);
-int	count_rb(int ind, t_prog *prog, t_ms *ms);
+void	update_ch(t_ms *ms, t_prog *prog);;
 void	add_grp(t_ms *ms, t_prog *prog);
 int		in_ch(int po, t_ms *ms);
-void	boundery(int size, t_ch *ch, int *bo);
-void	update_ch(t_ms *ms, t_prog *prog);;
-int		inlen_new(int i, t_ch ch, int found);
-void	ff_lf_intx(t_ms *ms, t_list *list, int i);
-int		min_lf(t_ms *ms, int a, int b);
-void	throw_b(int min, t_ms *ms, t_prog *prog, int n);
 
 void	medium(t_prog *prog)
 {
 	int		cs;
 	t_ms	*ms;
-	int min_i;
 
 	cs = prog->size / 4;
 	ms = init_ms(prog->size , cs);
@@ -36,102 +28,11 @@ void	medium(t_prog *prog)
 	if (!prog->error)
 	{
 		creat_bo(ms, cs, prog->size);
-	//	put_aint(ms->bo, ms->ngrp); // put array int
 		update_ch(ms, prog);
-	//	show_ch_all(ms->ch, ms->ngrp); // put array int
-		int	need_rb;
-		int te;
-		int	rrb_c;
-
-		te = 0;
-		while (te < ms->ngrp)
-		{
-			min_i = min_lf(ms, prog->size, 0);
-			need_rb = count_rb(min_i, prog, ms);
-			throw_b(min_i, ms, prog, need_rb);
-			ff_lf_intx(ms, prog->ta, 0);
-			te++;
-		//	ft_printf("min_i = %d\n", min_i);
-		}
+		a_to_b(ms, prog);
 	}
 }
 
-int	count_rb(int ind, t_prog *prog, t_ms *ms)
-{
-	int		res;
-	int		prev;
-	int		next;
-	int		size;
-	t_list	*temp;
-
-	res = 0;
-	size = ft_lstsize(prog->tb);
-	if (!prog->tb)
-		return (0);
-	temp = prog->tb;
-	while (temp && res < size)
-	{
-		prev = g_cont_grp(temp);
-		temp = temp->next;
-		if (temp)
-			next = g_cont_grp(temp);
-		if (ind > prev && ind < next)
-			break;
-		res++;
-	}
-	if (res == size)
-		return (0);
-	return (res);
-}
-
-void	throw_b(int ind, t_ms *ms, t_prog *prog, int need_rb)
-{
-	t_ch	ch;
-	int		po;
-	int		stop;
-
-	ch = ms->ch[ind];
-	stop = ms->ch[ind].m_amount;
-	while (prog->ta && stop)
-	{
-		po = g_cont_po(prog->ta);
-		if (po >= ch.low && po < ch.up)
-		{
-			l_action(rb, need_rb, prog);
-			need_rb = 0;
-			action(pb, prog);
-			stop--;
-		}
-		else if (need_rb)
-		{
-			action(rr, prog);
-			need_rb--;
-		}
-		else
-		{
-			action(ra, prog);
-		}
-		ft_putstr_fd("ta: ",1);
-		dump_g(prog->ta);
-		ft_putstr_fd("\n",1);
-		ft_putstr_fd("tb: ",1);
-		dump_g(prog->tb);
-		ft_putstr_fd("\n",1);
-	}
-	ms->ch[ind].tob = 1;
-}
-
-void	l_action(t_act act, int n, t_prog *prog)
-{
-	int	i;
-
-	i = 0;
-	while(i <= n)
-	{
-		action(act, prog);
-		i++;
-	}
-}
 
 void	update_ch(t_ms *ms, t_prog *prog)
 {
@@ -171,80 +72,10 @@ int	in_ch(int po, t_ms *ms)
 	}
 	return (-1);
 }
-
-int		min_lf(t_ms *ms, int size, int i)
-{
-	int		min;
-	int		res_i;
-
-	min = size + 1;
-	res_i = -1;
-	while (i < ms->ngrp)
-	{
-		if (!ms->ch[i].tob)
-		{
-			if (min > ms->ch[i].lf)
-			{
-				min = ms->ch[i].lf;
-				res_i = i;
-			}
-		}
-		i++;
-	}
-	return (res_i);
-}
-
-void	ff_lf_intx(t_ms *ms, t_list *tx, int i)
-{
-	int		j;
-	t_list	*tem;
-	int		mem;
-
-	while (i < ms->ngrp)
-	{
-		j = 0;
-		tem = tx;
-		mem = ms->ch[i].m_amount;
-		while (tem)
-		{
-			if (inlen_new(g_cont_po(tem), ms->ch[i],mem))
-			{
-				if (mem == ms->ch[i].m_amount)
-					ms->ch[i].ff = j;
-				mem--;
-				if (!mem)
-					ms->ch[i].lf = j;
-			}
-			j++;
-			tem = tem->next;
-		}
-		i++;
-	}
-}
-
+/////// are in lib??
 int		inlen_new(int i, t_ch ch, int founded)
 {
 	return (i >= ch.low && i < ch.up);
-}
-
-void	boundery(int size, t_ch *chi, int *bo)
-{
-	int		i;
-
-	i = 1;
-	if (!chi || !bo)
-		return ;
-	chi[0].low = 1;
-	chi[0].up = bo[0];
-	chi[0].m_amount = bo[0] - 1;
-	while (i < size)
-	{
-		chi[i].index = i;
-		chi[i].m_amount = bo[i] - bo[i-1];
-		chi[i].up = bo[i];
-		chi[i].low = bo[i - 1];
-		i++;
-	}
 }
 
 void	creat_bo(t_ms *ms, int cs, int size)
@@ -262,40 +93,3 @@ void	creat_bo(t_ms *ms, int cs, int size)
 		ms->bo[i] = size;
 }
 
-t_ms	*init_ms(int size, int cs)
-{
-	t_ms	*res;
-	int	ng;
-
-	res = malloc(sizeof(t_ms));
-	if (!res)
-		return (NULL);
-	res->csi = cs;
-	ng = size / cs + (size % cs != 0);
-	res->ngrp = ng;
-	//ft_printf("res->ngrp %d\n", res->ngrp);
-	res->ch = ft_calloc(sizeof(t_ch), ng);
-
-	res->bo = ft_calloc(sizeof(int), ng);
-	res->ata = ft_calloc(sizeof(int), size);
-	res->atb = ft_calloc(sizeof(int), size);
-	if (!res->bo || !res->ata || !res->atb)
-	{
-		clear_ms(res);
-		return (NULL);
-	}
-	return (res);
-}
-
-void	clear_ms(t_ms *ms)
-{
-	if (!ms)
-		return ;
-	if (ms->bo)
-		free(ms->bo);
-	if (ms->ata)
-		free(ms->ata);
-	if (ms->atb)
-		free(ms->atb);
-	free(ms);
-}
