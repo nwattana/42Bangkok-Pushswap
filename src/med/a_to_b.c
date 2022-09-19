@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 23:22:20 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/17 23:28:46 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/19 20:52:38 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	a_to_b(t_ms *ms, t_prog *prog)
 		ff_lf_intx(ms, prog->ta, 0);
 		chunk_in_b++;
 	}
+	ft_putstr_fd("last ",1);
+	rotate_b = count_rb(chunk_action, prog, ms);
 }
 
 static void	throw_b(int ind, t_ms *ms, t_prog *prog, int need_rb)

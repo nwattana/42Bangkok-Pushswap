@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/18 18:18:04 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/20 02:13:54 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,12 @@ void	action(t_act act, t_prog *pr);
 // chunk
 void	show_ch_all(t_ch *ch, int size);
 void	show_ch_i(t_ch *ch, int index);
+
+// move counting
+
+int		movemax_top(int	ind, t_ms *ms, t_prog *prog);
+int		movemid_top(int ind, t_ms *ms, t_prog *prog);
+
 // med
 
 void	medium(t_prog *prog);
@@ -101,7 +107,6 @@ void	boundery(int size, t_ch *ch, int *bo);
 void	ff_lf_intx(t_ms *ms, t_list *tx, int i);
 int		count_rb(int ind, t_prog *prog, t_ms *ms);
 int		inlen_new(int i, t_ch ch, int founded);
-
 
 #endif
 

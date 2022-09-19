@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/18 20:25:07 by nwattana         ###   ########.fr        #
+#    Updated: 2022/09/19 00:40:52 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SMALL= ./src/small/dosort_small.c ./src/small/small.c
 MED = ./src/med/medium.c ./src/med/chunk.c \
 	  ./src/med/a_to_b.c ./src/med/boundery.c \
 	  ./src/med/count_rb.c ./src/med/ff_lf_inx.c \
-	  ./src/med/ft_ms.c
+	  ./src/med/ft_ms.c ./src/med/inlen_new.c
 
 SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) \
 	$(ACT) $(SORT) $(SMALL) \
