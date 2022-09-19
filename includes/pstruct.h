@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/16 14:30:39 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/19 19:52:49 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ typedef struct	s_ch
 // to path to first chunk member
 // way ?? 
 // cma chunk member amount
+// ch array size = ngrp
 typedef struct	s_msort
 {
 	int		csi;

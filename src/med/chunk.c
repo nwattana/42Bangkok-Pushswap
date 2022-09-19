@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:21:31 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/16 14:32:25 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/19 20:50:26 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	show_ch_i(t_ch *ch, int i)
 	
 		ft_printf("lower	%d\n", ch[i].low);
 		ft_printf("upper	%d\n", ch[i].up);
-		ft_printf("index	%d\n", ch[i].index);
-		ft_printf("m_a	%d\n", ch[i].m_amount);
+		ft_printf("index\t	%d\n", ch[i].index);
+		ft_printf("m_amount	%d\n", ch[i].m_amount);
 
 		ft_printf("cact	%d\n", ch[i].cact);
 		ft_printf("tob	%d\n", ch[i].tob);

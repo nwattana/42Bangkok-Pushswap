@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   inlen_new.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 06:18:59 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/19 00:50:21 by nwattana         ###   ########.fr       */
+/*   Created: 2022/09/19 00:41:48 by nwattana          #+#    #+#             */
+/*   Updated: 2022/09/19 00:41:57 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main(int argc, char *argv[])
+int		inlen_new(int i, t_ch ch, int founded)
 {
-	t_prog	*prog;
-
-	prog = prog_init();
-	if (argc == 1 || (argc == 2 &&\
-			ft_strlen(argv[1]) == 0) || !prog)
-	{
-		ft_printf("Something fail\n");
-	}
-	else
-	{
-		get_input(argc, argv, prog);
-		if (issort(prog->ta))
-			prog->error = 2;
-		else
-		{
-			main_sort(prog);	
-		}
-//		ft_printf("Hello Do pushswap\n");
-		// pb
-//		swap(&prog->ta);
-	}
-	dump_g(prog->tb);
-	prog_free(prog);
-	return (0);
+	return (i >= ch.low && i < ch.up);
 }
+

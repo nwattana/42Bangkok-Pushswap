@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:33:04 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/18 20:21:02 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/19 01:03:52 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	medium(t_prog *prog)
 	int		cs;
 	t_ms	*ms;
 
-	cs = prog->size / 4;
+	cs = 10;
 	ms = init_ms(prog->size , cs);
 	prog->ms = ms;
 	if (!prog->ms)
@@ -72,11 +72,6 @@ int	in_ch(int po, t_ms *ms)
 	}
 	return (-1);
 }
-/////// are in lib??
-int		inlen_new(int i, t_ch ch, int founded)
-{
-	return (i >= ch.low && i < ch.up);
-}
 
 void	creat_bo(t_ms *ms, int cs, int size)
 {
@@ -93,3 +88,10 @@ void	creat_bo(t_ms *ms, int cs, int size)
 		ms->bo[i] = size;
 }
 
+void	b_to_a(t_ms *ms, t_prog *prog)
+{
+	while (g_cont_grp(prog->tb) < ms->ngrp - 1)
+	{
+		action(rb, prog);
+	}
+}
