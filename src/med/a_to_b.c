@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 23:22:20 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/19 20:52:38 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/22 00:06:01 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,20 @@ void	a_to_b(t_ms *ms, t_prog *prog)
 	int		rotate_b;
 	int		chunk_in_b;
 	int		chunk_action;
+	int		i;
 
 	chunk_in_b = 0;
-	while (chunk_in_b < ms->ngrp)
+	i = 0;
+	while (chunk_in_b < ms->ngrp && ft_lstsize(prog->ta) > 2)
 	{
 		chunk_action = min_lf(ms, prog->size, 0);
+		chunk_action = i;
 		rotate_b = count_rb(chunk_action, prog, ms);
 		throw_b(chunk_action, ms, prog, rotate_b);
 		ff_lf_intx(ms, prog->ta, 0);
 		chunk_in_b++;
+		i++;
 	}
-	ft_putstr_fd("last ",1);
 	rotate_b = count_rb(chunk_action, prog, ms);
 }
 

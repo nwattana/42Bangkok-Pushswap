@@ -6,13 +6,14 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:33:04 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/19 01:03:52 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/22 00:51:16 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 void	update_ch(t_ms *ms, t_prog *prog);;
 void	add_grp(t_ms *ms, t_prog *prog);
+void	b_to_a(t_ms *ms, t_prog *prog);
 int		in_ch(int po, t_ms *ms);
 
 void	medium(t_prog *prog)
@@ -30,10 +31,57 @@ void	medium(t_prog *prog)
 		creat_bo(ms, cs, prog->size);
 		update_ch(ms, prog);
 		a_to_b(ms, prog);
+		b_to_a(ms, prog);
 	}
 }
 
+/// b_to_a.c
 
+void	little_swap(t_ms *ms, t_prog *prog);
+void	b_to_a(t_ms *ms, t_prog *prog)
+{
+	int		i;
+	int		item;
+
+	little_swap(ms, prog);
+	i = ms->ngrp - 1;
+	while (i > 0)
+	{
+		item = item_in_b(i, prog->tb);
+		while (item)
+		{
+			item--;
+		}
+		i--;
+	}
+}
+
+int		item_in_b(int i, t_list *tb)
+{
+	int		item;
+
+	item = 0;
+	while (tb && g_cont_grp(tb) == i)
+	{
+		tb = tb->next;
+		item++;
+	}
+	return (item);
+}
+
+void	little_swap(t_ms *ms, t_prog *prog)
+{
+	if (g_cont_po(prog->ta) != prog->size)	
+	{
+		if (g_cont_po(prog->tb) < g_cont_po(prog->tb->next))
+			action(ss, prog);
+		else
+			action(sa, prog);
+	}
+
+}
+
+//// end of b_to_a
 void	update_ch(t_ms *ms, t_prog *prog)
 {
 	int		i;
@@ -86,12 +134,4 @@ void	creat_bo(t_ms *ms, int cs, int size)
 	i--;
 	if (ms->bo[i] > size)
 		ms->bo[i] = size;
-}
-
-void	b_to_a(t_ms *ms, t_prog *prog)
-{
-	while (g_cont_grp(prog->tb) < ms->ngrp - 1)
-	{
-		action(rb, prog);
-	}
 }

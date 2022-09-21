@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 14:23:12 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/20 01:57:52 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/21 23:46:16 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,23 @@ static int max_ch(t_ms *ms);
 static int min_ch(t_ms *ms);
 static int	b_size(t_ms *ms);
 
+/// compare index
 int	count_rb(int ind, t_prog *prog, t_ms *ms)
 {
 	int		res;
+	int		max;
+	int		min;
 
+	max = max_ch(ms);
+	min = min_ch(ms);
 	res = 0;
-	if (ind > max_ch(ms) && ind < min_ch(ms))
+	if (ind > max && ind < min)
 	{
-		res = movemax_top(ms);
+		res = movemax_top(max, ms, prog);
 	}
 	else
 	{
-		res = movemiddle_top(ms, prog);
+		res = movemid_top(ind, ms, prog);
 	}
 	return (res);
 }
@@ -50,7 +55,7 @@ static int max_ch(t_ms *ms)
 		}
 		i++;
 	}
-	show_ch_all(ms->ch, ms->ngrp);
+//	show_ch_all(ms->ch, ms->ngrp);
 	return (max);
 }
 
