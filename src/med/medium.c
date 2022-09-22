@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 18:33:04 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/22 23:52:00 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/23 00:24:32 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,89 +35,6 @@ void	medium(t_prog *prog)
 	}
 }
 
-/// b_to_a.c
-
-void	little_swap(t_ms *ms, t_prog *prog);
-int		item_in_b(int i, t_list *tb);
-void	b_to_a(t_ms *ms, t_prog *prog)
-{
-	int		i;
-	int		item;
-	int		topa;
-	int		topb;
-	int		wait;
-	int		rev;
-	int		stop;
-
-	little_swap(ms, prog);
-	i = ms->ngrp - 1;
-	wait = 0;
-	rev = 0;
-	while (i >= 0)
-	{
-		item = item_in_b(i, prog->tb);
-		while (item > 0)
-		{
-			topa = g_cont_po(prog->ta);
-			topb = g_cont_po(prog->tb);
-
-			if (topa - topb == 1) 
-			{
-				action(pa, prog);
-				item--;
-			}
-			else if (item - ms->ch[i].passb > 0)
-			{
-				action(rb, prog);
-				ms->ch[i].passb++;
-			}
-			else if (item - ms->ch[i].passb <= 0)
-			{
-				l_action(rrb, ms->ch[i].passb,prog);
-				ms->ch[i].passb = 0;
-			}
-		}
-		i--;
-	}
-}
-
-// input index -- return amount of that index in tb
-int		item_in_b(int i, t_list *tb)
-{
-	int		item;
-
-	item = 0;
-	while (tb && g_cont_grp(tb) == i)
-	{
-		item += (g_cont_grp(tb) == i);
-		tb = tb->next;
-	}
-	return (item);
-}
-
-void	little_swap(t_ms *ms, t_prog *prog)
-{
-	int		topa;
-	int		topb;
-	int		ftopa;
-	int		ftopb;
-
-	topa = g_cont_po(prog->ta);
-	topb = g_cont_po(prog->tb);
-	ftopa = g_cont_po(prog->ta->next);
-	ftopb = g_cont_po(prog->tb->next);
-	if (topa > ftopa)	
-	{
-		if (topb < ftopb)
-			action(ss, prog);
-		else
-			action(sa, prog);
-	}
-//	ft_printf("A top %d  %d\nb top %d  %d\n", topa, ftopa, topb, ftopb);
-
-}
-
-//// end of b_to_a
 void	update_ch(t_ms *ms, t_prog *prog)
 {
 	int		i;
