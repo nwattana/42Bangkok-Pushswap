@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/20 02:13:54 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/23 01:40:02 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int		movemid_top(int ind, t_ms *ms, t_prog *prog);
 
 // med
 
-void	medium(t_prog *prog);
+void	medium(int a, t_prog *prog);
 void	update_arr(t_list *ta, t_list *tb, t_ms *ms);
 void	creat_bo(t_ms *ms, int cs, int size);
 t_ms	*init_ms(int size, int cs);
