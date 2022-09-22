@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 00:06:43 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/23 00:42:17 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/23 00:52:05 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,10 @@ void	b_to_a(t_ms *ms, t_prog *prog)
 		{
 			item -= go_up(item, i, ms, prog);
 			item -= go_down(item, i, ms, prog);
-			usleep(100000);
-		//	dump_p(prog);
 		}
 		i--;
 	}
+//dump_p(prog);
 }
 
 int	go_up(int item, int i, t_ms *ms, t_prog *prog)
@@ -77,14 +76,17 @@ int		go_down(int item, int i, t_ms *ms, t_prog *prog)
 	total = 0;
 	while (item > 0 && ms->ch[i].passb > 0)
 	{
-		action(rrb, prog);
-		ms->ch[i].passb--;
+		topa = g_cont_po(prog->ta);
+		topb = g_cont_po(prog->tb);
+	//	ft_printf("\t\ttop A %d: top B %d\n", topa, topb);
 		if (topa - topb == 1)
 		{
 			action(pa, prog);
 			item--;
 			total++;
 		}
+		action(rrb, prog);
+		ms->ch[i].passb--;
 	}
 	return (total);
 }
@@ -121,6 +123,4 @@ void	little_swap(t_ms *ms, t_prog *prog)
 		else
 			action(sa, prog);
 	}
-//	ft_printf("A top %d  %d\nb top %d  %d\n", topa, ftopa, topb, ftopb);
-
 }
