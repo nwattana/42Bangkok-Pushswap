@@ -6,32 +6,27 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 23:22:20 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/22 00:06:01 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/27 00:01:40 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
 static void		throw_b(int ind, t_ms *ms, t_prog *prog, int need_rb);
-static int		min_lf(t_ms *ms, int size, int i);
 
 void	a_to_b(t_ms *ms, t_prog *prog)
 {
 	int		rotate_b;
-	int		chunk_in_b;
 	int		chunk_action;
 	int		i;
 
-	chunk_in_b = 0;
 	i = 0;
-	while (chunk_in_b < ms->ngrp && ft_lstsize(prog->ta) > 2)
+	while (i < ms->ngrp && ft_lstsize(prog->ta) > 2)
 	{
-		chunk_action = min_lf(ms, prog->size, 0);
 		chunk_action = i;
 		rotate_b = count_rb(chunk_action, prog, ms);
 		throw_b(chunk_action, ms, prog, rotate_b);
 		ff_lf_intx(ms, prog->ta, 0);
-		chunk_in_b++;
 		i++;
 	}
 	rotate_b = count_rb(chunk_action, prog, ms);
@@ -61,31 +56,7 @@ static void	throw_b(int ind, t_ms *ms, t_prog *prog, int need_rb)
 			need_rb--;
 		}
 		else
-		{
 			action(ra, prog);
-		}
 	}
 	ms->ch[ind].tob = 1;
-}
-
-int		min_lf(t_ms *ms, int size, int i)
-{
-	int		min;
-	int		res_i;
-
-	min = size + 1;
-	res_i = -1;
-	while (i < ms->ngrp)
-	{
-		if (!ms->ch[i].tob)
-		{
-			if (min > ms->ch[i].lf)
-			{
-				min = ms->ch[i].lf;
-				res_i = i;
-			}
-		}
-		i++;
-	}
-	return (res_i);
 }
