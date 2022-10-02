@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 20:25:13 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/18 20:25:24 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:58:36 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ t_ms	*init_ms(int size, int cs)
 		return (NULL);
 	}
 	return (res);
+}
+
+int		m_inchunk(int i, int c_ind, t_ms *ms)
+{
+	t_ch	ch;
+
+	ch = ms->ch[c_ind];
+	if (c_ind == ms->ngrp)
+		return (i >= ch.low && i < ch.up - 1);
+	return (i >= ch.low && i < ch.up);
 }
 
 void	clear_ms(t_ms *ms)

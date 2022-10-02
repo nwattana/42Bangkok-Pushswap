@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/19 19:52:49 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:01:05 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ typedef struct s_sres
 
 // rts = rotate side
 // ff = found first
-// lf = last found
+// lf = last founda
+// finish_a = all member chunk have move to b
 typedef struct	s_ch
 {
 	int	ff;
@@ -84,6 +85,7 @@ typedef struct	s_ch
 	int	index;
 
 	int	cact;
+	int	finish_a;
 	int	tob;
 	int toa;
 	int	passb;

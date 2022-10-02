@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:23:39 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/17 01:55:42 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:44:36 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ void	dump_p(t_prog *p)
 	dump_s(p->ta);
 	ft_printf("stack_b : ");
 	dump_s(p->tb);
+}
+
+void	dump_g_all(t_prog *p)
+{
+	ft_putstr_fd("TA: ",1);
+	dump_g(p->ta);
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("TB: ",1);
+	dump_g(p->tb);
+	ft_putchar_fd('\n', 1);
 }
 
 void	dump_node(t_list *st)
