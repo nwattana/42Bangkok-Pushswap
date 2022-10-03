@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/27 19:01:05 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:46:37 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,49 +68,32 @@ typedef struct s_sres
 	UINT	size_b;
 }			t_sres;
 
-
-// rts = rotate side
-// ff = found first
-// lf = last founda
 // finish_a = all member chunk have move to b
-typedef struct	s_ch
+typedef struct	s_chunk_info
 {
-	int	ff;
-	int	lf;
-	int	rts;
-
-	int	up;
-	int	low;
-	int m_amount;
 	int	index;
-
-	int	cact;
-	int	finish_a;
-	int	tob;
-	int toa;
+	int	lower;
+	int	upper;
+	int	size;
+	// for b to a
+	int	inb;
+	int ina;
 	int	passb;
 	int	passa;
 }			t_ch;
 
-// csi base chunk size 
-// ngrp chunk amount
-// bo chunk boundery
-// to path to first chunk member
-// way ?? 
-// cma chunk member amount
-// ch array size = ngrp
-typedef struct	s_msort
+// last_p lowest number will remaining in A
+// ngrp amount of chunk Careful index for array
+// p_top Top chunk is process
+// p_bot bot chunk is process
+typedef struct	s_medium_sort
 {
-	int		csi;
-	int		ngrp;
-	int		*bo;
+	int	last_p;
+	int	ngrp;
+	int	p_top;
+	int p_bot;
 
-	t_ch	*ch;
-	int		*ata;
-	int		size_a;
-	int		*atb;
-	int		size_b;
-
+	t_ch *ch;
 }		t_ms;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/29 19:43:54 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/04 01:46:35 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,25 +87,13 @@ void	merge_act(t_sres *res, t_prog *prog);
 void	action(t_act act, t_prog *pr);
 
 // chunk
-void	show_ch_all(t_ch *ch, int size);
-void	show_ch_i(t_ch *ch, int index);
-int		m_inchunk(int lookup, int c_ind, t_ms *ms);
-
-// move counting
-int		movemax_top(int	ind, t_ms *ms, t_prog *prog);
-int		movemid_top(int ind, t_ms *ms, t_prog *prog);
+t_ch *asign_ch(t_prog *prog, int cs,int ngrp);
+void	dump_ch(t_ch ch);
 
 // med
 void	medium(int a, t_prog *prog);
-void	update_arr(t_list *ta, t_list *tb, t_ms *ms);
-void	creat_bo(t_ms *ms, int cs, int size);
-t_ms	*init_ms(int size, int cs);
-void	clear_ms(t_ms *ms);
-void	put_chunk(t_prog *prog, t_ms *ms);
-void	a_to_b(t_ms *ms, t_prog *prog);
-void	boundery(int size, t_ch *ch, int *bo);
-void	ff_lf_intx(t_ms *ms, t_list *tx, int i);
-int		count_rb(int ind, t_prog *prog, t_ms *ms);
-int		inlen_new(int i, t_ch ch, int founded);
+
+
+
 
 #endif
