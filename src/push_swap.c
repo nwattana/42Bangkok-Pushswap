@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 06:18:59 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/29 19:33:12 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/06 02:23:20 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,9 @@ int	main(int argc, char *argv[])
 		// pb
 //		swap(&prog->ta);
 	}
-	dump_p(prog);
-	dump_g(prog->ta);
-	ft_putchar_fd('\n',1);
-	dump_g(prog->tb);
-	ft_putchar_fd('\n',1);
+//	dump_g(prog->ta);
+//	dump_g(prog->tb);
+//	dump_p(prog);
 	prog_free(prog);
 	return (0);
 }

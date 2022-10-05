@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/04 01:46:35 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/06 02:26:36 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_prog
 	t_list	*tb;
 	t_sres	*sres;
 	t_ms *ms;
-
 }		t_prog;
 
 t_prog		*prog_init(void);
@@ -87,13 +86,16 @@ void	merge_act(t_sres *res, t_prog *prog);
 void	action(t_act act, t_prog *pr);
 
 // chunk
-t_ch *asign_ch(t_prog *prog, int cs,int ngrp);
+t_ch *assign_ch(t_prog *prog, int cs,int ngrp);
 void	dump_ch(t_ch ch);
+int		is_inchunk(t_ms *ms, int n);
+int		is_chunk_mem(t_ch ch, int n);
 
 // med
 void	medium(int a, t_prog *prog);
-
-
-
-
+t_ms	*ms_init(int a, t_prog *prog);
+void	show_ms(t_ms *ms);
+void	show_ms_cs(t_ms *ms);
+void	a_to_b(t_ms *ms, t_prog *prog);
+void	move_top(t_ms *ms, t_prog *prog);
 #endif

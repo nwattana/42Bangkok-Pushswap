@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/04 01:46:37 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/06 03:00:12 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ typedef struct	s_chunk_info
 	int	passa;
 }			t_ch;
 
-// last_p lowest number will remaining in A
-// ngrp amount of chunk Careful index for array
 // p_top Top chunk is process
 // p_bot bot chunk is process
 typedef struct	s_medium_sort

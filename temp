@@ -1,0 +1,27 @@
+src
+├── act
+│   ├── action.c
+│   ├── action2.c
+│   ├── action2_closeprint.c
+│   └── l_action.c
+├── content
+│   └── content.c
+├── input
+│   ├── input.c
+│   └── input2.c
+├── issort.c
+├── main_sort.c
+├── med
+│   ├── assign_ch.c
+│   ├── medium.c
+│   └── ms_init.c
+├── prog
+│   ├── d_prog.c
+│   └── program.c
+├── push_swap.c
+├── put_aint.c
+└── small
+    ├── dosort_small.c
+    └── small.c
+
+6 directories, 18 files

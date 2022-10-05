@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/09/23 00:33:37 by nwattana         ###   ########.fr        #
+#    Updated: 2022/10/06 01:41:34 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,12 @@ INPUT=./src/input/input.c ./src/input/input2.c
 SORT = ./src/main_sort.c ./src/issort.c
 
 SMALL= ./src/small/dosort_small.c ./src/small/small.c
-MED = ./src/med/medium.c ./src/med/chunk.c \
-	  ./src/med/a_to_b.c ./src/med/boundery.c \
-	  ./src/med/count_rb.c ./src/med/ff_lf_inx.c \
-	  ./src/med/ft_ms.c ./src/med/inlen_new.c \
-	  ./src/med/count_rb_2.c ./src/med/b_to_a.c
+MED = ./src/med/medium.c \
+	  ./src/med/assign_ch.c\
+	  ./src/med/ms_init.c\
+	  ./src/med/chunk.c\
+	  ./src/med/a_to_b.c\
+	  ./src/med/move_top.c
 
 SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) \
 	$(ACT) $(SORT) $(SMALL) \
@@ -50,7 +51,7 @@ ENDC=\033[39m
 
 all: greeting
 
-pushswap: lib
+ps: lib
 	$(CC) $(CFLAG) $(ILIB) $(SRC) $(NSRC) $(LIB) -o push_swap_test
 
 maintest:
@@ -85,4 +86,4 @@ testps:
 lib:
 	make -C ./printf
 
-.PHONY: all maintest greeting testlib
+.PHONY: all maintest greeting testlib ps

@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   chunk.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 00:20:53 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/04 12:26:57 by nwattana         ###   ########.fr       */
+/*   Created: 2022/10/05 09:34:33 by nwattana          #+#    #+#             */
+/*   Updated: 2022/10/05 09:56:50 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pushswap.h"
 
-size_t	ft_strlen(const char *s)
+int	is_inchunk(t_ms *ms, int n)
 {
-	size_t	len;
+	int	i;
 
-	if (!s)
-		return (0);
-	len = 0;
-	while (*(s + len) != '\0')
+	i = ms->ngrp - 1;
+	while (i >= 0)
 	{
-		len++;
+		if (is_chunk_mem(ms->ch[i], n))
+		{
+			return (i);
+		}
+		i--;
 	}
-	return (len);
+	return (-1);
+}
+
+int	is_chunk_mem(t_ch ch, int n)
+{
+	int upper;
+	int lower;
+	int bol;
+
+	bol = 0;
+	upper = ch.upper;
+	lower = ch.lower;
+	if (n >= lower && n < upper)
+			bol = 1;
+	return (bol);
 }

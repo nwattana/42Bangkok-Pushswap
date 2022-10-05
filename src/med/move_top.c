@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   move_top.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 00:20:53 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/04 12:26:57 by nwattana         ###   ########.fr       */
+/*   Created: 2022/10/06 01:41:57 by nwattana          #+#    #+#             */
+/*   Updated: 2022/10/06 01:42:10 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pushswap.h"
 
-size_t	ft_strlen(const char *s)
+void	move_top(t_ms *ms, t_prog *prog)
 {
-	size_t	len;
-
-	if (!s)
-		return (0);
-	len = 0;
-	while (*(s + len) != '\0')
+	int	 i;
+	t_list *temp;
+	i = 0;
+	temp = prog->tb;
+	while (temp)
 	{
-		len++;
+		if (g_cont_grp(temp) == ms->ngrp - 1)
+			break;
+		i++;
+		temp = temp->next;
 	}
-	return (len);
+	l_action(rb, i, prog);
 }
