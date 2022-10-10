@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:23:39 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/29 19:44:36 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/11 00:25:39 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	dump_g(t_list *st)
 	}
 	while (st)
 	{
-		ft_printf("%d =>",g_cont_grp(st));
+		ft_printf("%d => ",g_cont_grp(st));
 		st = st->next;
 	}
 }
