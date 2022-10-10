@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:33:46 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/04 10:01:30 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/10 21:32:50 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_ms	*ms_init(int cs, t_prog *prog)
 	ms = ft_calloc(sizeof(t_ms), 1);
 	if (!ms)
 		return (NULL);
-	ms->last_p = prog->size - 2;
+	ms->last_p = prog->size - 1;
 	ms->ngrp = prog->size / cs + (prog->size % cs > 0);
 	ms->p_top = ms->ngrp - 1;
 	ms->p_bot = 0;

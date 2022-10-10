@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:33:12 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/07 01:15:53 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:25:35 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ t_ch *assign_ch(t_prog *prog, int cs, int ngrp)
 		if (i == 0)
 			ch[i].lower = 1;
 		if (i == ngrp - 1)
-			ch[i].upper = prog->size - 2;
+			ch[i].upper = prog->size - 1;
 			if (ch[i].upper < ch[i].lower)
 				ch[i].lower = ch[i].upper;
 		ch[i].size = ch[i].upper - ch[i].lower;
 		ch[i].ina = ch[i].size;
 		i++;
 	}
+	ch[i].min = ch[i].lower;
 	return (ch);
 }
 

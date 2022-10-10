@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/06 03:00:12 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:30:25 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ typedef struct s_cont
 	int	au;
 }			t_cont;
 /*
+ * queue
  * fr front
  * re rear
  * unsigned int size
+ *
  */
 typedef struct s_q
 {
@@ -80,6 +82,8 @@ typedef struct	s_chunk_info
 	int ina;
 	int	passb;
 	int	passa;
+
+	int min;
 }			t_ch;
 
 // p_top Top chunk is process
@@ -90,7 +94,6 @@ typedef struct	s_medium_sort
 	int	ngrp;
 	int	p_top;
 	int p_bot;
-
 	t_ch *ch;
 }		t_ms;
 
