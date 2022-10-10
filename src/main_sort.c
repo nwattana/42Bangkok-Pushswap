@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 06:23:07 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/06 03:00:14 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/07 01:36:02 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	main_sort(t_prog *prog)
 	else if (len <= 50)
 		medium(len /4, prog);
 	else if (len <= 120)
-		medium(15, prog);
+		medium(20, prog);
 	else
 		medium(16, prog);
 }

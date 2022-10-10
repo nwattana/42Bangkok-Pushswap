@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:53:26 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/06 02:21:07 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/07 01:14:57 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	a_to_b(t_ms *ms, t_prog *prog)
 	int	trig;
 
 	trig = 0;
-	while (ft_lstsize(prog->ta) > 1)
+	while (ft_lstsize(prog->ta) > 3)
 	{
 		now = g_cont_grp(prog->ta);
 		if (now == ms->p_top)
