@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/10 23:30:25 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:35:54 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,18 @@ typedef struct	s_medium_sort
 	int p_bot;
 	t_ch *ch;
 }		t_ms;
+
+
+typedef struct s_msaux
+{
+	int	min;
+	int	xtrig;
+	int	ytrig;
+	int tog1;
+	int tog2;
+	int stop;
+	unsigned int loop;
+}		t_aux;
+
 
 #endif

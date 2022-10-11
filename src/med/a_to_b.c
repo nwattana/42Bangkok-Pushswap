@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:53:26 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/10 21:33:17 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/11 11:16:02 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,56 @@
 
 void	a_to_b(t_ms *ms, t_prog *prog)
 {
-	int stop;
 	int	now;
-	int	trig;
+	t_aux *ax;
 
-	trig = 0;
+	ax = init_aux();
+	if (!ax)
+	{
+		prog->error = 1;
+		return ;
+	}
 	while (ft_lstsize(prog->ta) > 2)
 	{
 		now = g_cont_grp(prog->ta);
-		if (now == ms->p_top)
+		if (now == ms->p_top && !ax->tog1)
 		{
-			trig++;
+			ax->xtrig++;
 			action(pb, prog);
-			ms->ch[now].ina--;
-			ms->ch[now].inb++;
+			pushto(1, &(ms->ch[now]));
 		}
-		else if (now == ms->p_bot)
+		else if (now == ms->p_bot && !ax->tog2)
 		{
-			while (trig > 0)
+			while (ax->xtrig > 0)
 			{
 				action(rb, prog);
-				trig--;
+				ax->xtrig--;
 			}
 			action(pb, prog);
-			ms->ch[now].ina--;
-			ms->ch[now].inb++;
+			pushto(1, &(ms->ch[now]));
 		}
 		else
 		{
-			if (trig > 0)
+			if (ax->xtrig > 0)
 			{
 				action(rr,prog);
-				trig--;
+				ax->xtrig--;
 			}	
 			else
 				action(ra, prog);
 		}
-		if (ms->ch[ms->p_top].ina == 0)
+		ax_tog((ms->ch[ms->p_top].ina == 0), 1, ax);
+		ax_tog((ms->ch[ms->p_bot].ina == 0), 2, ax);
+		if (ax->tog1 && ax->tog2)
+		{
 			ms->p_top--;
-		if (ms->ch[ms->p_bot].ina == 0)
 			ms->p_bot++;
-	//	ft_printf("top %d bot %d now %d\n",ms->p_top, ms->p_bot, now);
-	//	ft_printf("size %d ina %d now %d\n",ms->ch[now].size, ms->p_bot, now);
+			if (ms->p_top == ms->p_bot)
+				ms->p_top = ms->ngrp + 1;
+			ax_retog(ax);
+		}
+		//ft_printf("p_top %d\tp_bot %d\tnow %d\t", ms->p_top, ms->p_bot, now);
 	}
+	free(ax);
 }
 

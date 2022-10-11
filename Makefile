@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/10/06 01:41:34 by nwattana         ###   ########.fr        #
+#    Updated: 2022/10/11 10:12:09 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ CONT = ./src/content/content.c
 INPUT=./src/input/input.c ./src/input/input2.c
 SORT = ./src/main_sort.c ./src/issort.c
 
+AUX = ./src/med/aux.c
+
 SMALL= ./src/small/dosort_small.c ./src/small/small.c
 MED = ./src/med/medium.c \
 	  ./src/med/assign_ch.c\
@@ -34,7 +36,7 @@ MED = ./src/med/medium.c \
 
 SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) \
 	$(ACT) $(SORT) $(SMALL) \
-	$(MED)
+	$(MED) $(AUX)
 
 CC = clang
 CFLAG = 

@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 09:34:33 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/05 09:56:50 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:19:02 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,22 @@ int	is_chunk_mem(t_ch ch, int n)
 	if (n >= lower && n < upper)
 			bol = 1;
 	return (bol);
+}
+
+// a = 1 ta -> tb
+// a = 0 tb -> ta
+void	pushto(int a, t_ch *ch)
+{
+	if (!ch)
+		return ;
+	if (a)
+	{
+		ch->ina--;
+		ch->inb++;
+	}
+	else
+	{
+		ch->ina++;
+		ch->inb++;
+	}
 }
