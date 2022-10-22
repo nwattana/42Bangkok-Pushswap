@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 06:18:59 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/11 11:16:57 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 20:31:51 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,17 @@ int	main(int argc, char *argv[])
 		{
 			main_sort(prog);	
 		}
-//		ft_printf("Hello Do pushswap\n");
-		// pb
-//		swap(&prog->ta);
 	}
-	//dump_g(prog->ta);
-	//dump_g(prog->tb);
-	//dump_p(prog);
+/*	if (issort(prog->ta))
+	{
+		ft_printf("sorted\n");
+	}
+	else
+	{
+		ft_printf("Nosort\n :(");
+		dump_prog(prog);
+	}*/
+//	ft_printf("ToTal action = %d\n",prog->total);
 	prog_free(prog);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:38:10 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/03 21:40:51 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:08:30 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_prog	*prog_init(void)
 	res->error = 0;
 	res->ta = NULL;
 	res->tb = NULL;
-
+	res->total = 0;
 	return (res);
 }
 

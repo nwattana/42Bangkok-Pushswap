@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 08:26:14 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 12:34:25 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:24:18 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,9 @@ void	add_sep(t_prog *prog)
 	while (ft_lstsize(prog->tb) != middle)
 	{
 		if (g_cont_po(prog->ta) <= middle)
-		{
-			px(&prog->ta, &prog->tb);
-			ft_putstr_fd("pb\n", 1);
-		}
+			action(pb, prog);
 		else
-		{
-			rx(&prog->ta);
-			ft_putstr_fd("ra\n", 1);
-		}
+			action(ra, prog);
 	}
 }
 

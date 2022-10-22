@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 21:42:00 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/12 13:51:22 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:24:21 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,11 @@ void	sres_do(t_sres *res, t_prog *prog, t_act *a)
 	while (i < res->size_a)
 	{
 		if (a[i] == sa)
-		{
-			swap(&prog->ta);
-			ft_putstr_fd("sa\n", 1);
-		}
+			action(sa, prog);
 		else if (a[i] == ra)
-		{
-			rx(&prog->ta);
-			ft_putstr_fd("ra\n", 1);
-		}
+			action(ra, prog);
 		else if (a[i] == rra)
-		{
-			rrx(&prog->ta);
-			ft_putstr_fd("rra\n", 1);
-		}
+			action(rra, prog);
 		i++;
 	}
 }

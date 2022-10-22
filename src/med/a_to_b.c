@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:53:26 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/11 11:16:02 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 22:13:16 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	a_to_b(t_ms *ms, t_prog *prog)
 				ms->p_top = ms->ngrp + 1;
 			ax_retog(ax);
 		}
-		//ft_printf("p_top %d\tp_bot %d\tnow %d\t", ms->p_top, ms->p_bot, now);
 	}
 	free(ax);
 }

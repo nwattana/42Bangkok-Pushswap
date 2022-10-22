@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/11 12:35:52 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 22:07:52 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_prog
 	t_list	*ta;
 	t_list	*tb;
 	t_sres	*sres;
+	int		total;
 	t_ms *ms;
 }		t_prog;
 
@@ -50,9 +51,9 @@ int		*ga_cont_data(t_list *lst);
 
 
 // debug
-void	dump_p(t_prog *p);
-void	dump_s(t_list *p);
-void	dump_g(t_list *p);
+void	dump_prog(t_prog *p);
+void	dump_position(t_list *p);
+void	dump_grp(t_list *p);
 void	dump_g_all(t_prog *p);
 void	dump_node(t_list *p);
 void	put_aint(int *nu, int size);

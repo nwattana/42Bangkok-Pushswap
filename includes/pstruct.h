@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/11 12:35:54 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 20:02:34 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,16 @@ typedef struct s_msaux
 	int stop;
 	unsigned int loop;
 }		t_aux;
+
+typedef struct s_mtb
+{
+	int	lim;
+	int top_a;
+	int top_b;
+	int active_ch;
+	int roll;
+	int	dir;
+}			t_mtb;
 
 
 #endif
