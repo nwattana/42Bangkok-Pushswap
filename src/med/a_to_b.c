@@ -6,63 +6,99 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:53:26 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 22:18:10 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:46:55 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+static int		count_grp(t_list *list);
+static void		mt_push_top(t_ms *ms, t_mt *mt, t_prog *prog);
+static void		mt_push_bot(t_ms *ms, t_mt *mt, t_prog *prog);
+static void		check_state(t_mt *mt, t_prog *prog);
 
 void	a_to_b(t_ms *ms, t_prog *prog)
 {
-	int	now;
-	t_aux *ax;
+//	ft_putstr_fd("let a_to_b\n", 1);
 
-	ax = init_aux();
-	if (!ax)
+	t_mt	mt;
+
+	mt.c_inb = 0;
+	mt.lim = ft_lstsize(prog->ta) - 3;
+	while (mt.lim > 0)
 	{
-		prog->error = 1;
-		return ;
-	}
-	while (ft_lstsize(prog->ta) > 2)
-	{
-		now = g_cont_grp(prog->ta);
-		if (now == ms->p_top && !ax->tog1)
+	//	dump_g_all(prog);
+		check_state(&mt, prog);
+		if (mt.top_a == ms->p_bot)
 		{
-			ax->xtrig++;
-			action(pb, prog);
-			pushto(1, &(ms->ch[now]));
+			mt_push_bot(ms, &mt, prog);
 		}
-		else if (now == ms->p_bot && !ax->tog2)
+		else if (mt.top_a == ms->p_top)
 		{
-			while (ax->xtrig > 0)
-			{
-				action(rb, prog);
-				ax->xtrig--;
-			}
-			action(pb, prog);
-			pushto(1, &(ms->ch[now]));
+			mt_push_top(ms, &mt, prog);
 		}
 		else
 		{
-			if (ax->xtrig > 0)
-			{
-				action(rr,prog);
-				ax->xtrig--;
-			}	
-			else
-				action(ra, prog);
+			action(ra, prog);
 		}
-		ax_tog((ms->ch[ms->p_top].ina == 0), 1, ax);
-		ax_tog((ms->ch[ms->p_bot].ina == 0), 2, ax);
-		if (ax->tog1 && ax->tog2)
-		{
-			ms->p_top--;
-			ms->p_bot++;
-			if (ms->p_top == ms->p_bot)
-				ms->p_top = ms->ngrp + 1;
-			ax_retog(ax);
-		}
+	//	dump_g_all(prog);
+	//	usleep(100000);
+	ft_printf("lim %d top :%d  bot ch :%d  top ch :%d\n", mt.lim ,mt.top_a, ms->p_bot, ms->p_top);
 	}
-	free(ax);
+
 }
 
+static void	mt_push_top(t_ms *ms, t_mt *mt, t_prog *prog)
+{
+	t_ch *ch;
+
+	ch = ms->ch;
+	action(pb, prog);
+	check_state(mt, prog);
+	if (mt->c_inb > 1)
+		action(rb, prog);
+	pushto(1, &ch[ms->p_top]);
+	if (ch[ms->p_top].ina == 0)
+		ms->p_top--;
+	mt->lim--;
+}
+
+// bot ch
+static void	mt_push_bot(t_ms *ms, t_mt *mt, t_prog *prog)
+{
+	t_ch *ch;
+
+	ch = ms->ch;
+	action(pb, prog);
+	pushto(1, &ch[ms->p_bot]);
+	if (ch[ms->p_bot].ina == 0)
+		ms->p_bot++;
+	mt->lim--;
+}
+
+static void	check_state(t_mt *mt, t_prog *prog)
+{
+	if (prog->ta)
+		mt->top_a = g_cont_grp(prog->ta);
+	else
+		mt->top_a = prog->size + 1;
+	if (mt->c_inb < 2)
+		mt->c_inb = count_grp(prog->tb);
+}
+
+static int	count_grp(t_list *list)
+{
+	int grp;
+	int a;
+
+	if (!list)
+		return (0);
+	a = g_cont_grp(list);
+	grp = 1;
+	while (list)
+	{
+		if (a != g_cont_grp(list))
+			return (2);
+		list = list->next;
+	}
+	return (grp);
+}

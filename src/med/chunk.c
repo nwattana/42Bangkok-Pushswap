@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 09:34:33 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 17:01:22 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 23:51:13 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ int	is_inchunk(t_ms *ms, int n)
 {
 	int	i;
 
+	if (!ms)
+		return (-1);
 	i = ms->ngrp - 1;
 	while (i >= 0)
 	{
 		if (is_chunk_mem(ms->ch[i], n))
-		{
 			return (i);
-		}
 		i--;
 	}
 	return (-1);

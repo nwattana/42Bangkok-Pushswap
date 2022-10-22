@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 10:35:23 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 20:30:58 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:22:38 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	action(t_act act, t_prog *prog)
 			px_action(act, prog);
 		else if (act >= rra && act <= rrr)
 			rrx_action(act, prog);
+		prog->total++;
 }
 
 static void	rx_action(t_act act, t_prog *prog)

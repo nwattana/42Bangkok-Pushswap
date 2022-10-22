@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 22:07:52 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:37:04 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,13 @@ int		is_inchunk(t_ms *ms, int n);
 int		is_chunk_mem(t_ch ch, int n);
 void	pushto(int a, t_ch *ch);
 
-// aux
-t_aux	*init_aux(void);
-void	dump_ax(t_aux *ax);
-void	ax_retog(t_aux *ax);
-void	ax_tog(int a, int nu, t_aux *ax);
 // med
 void	medium(int a, t_prog *prog);
 t_ms	*ms_init(int a, t_prog *prog);
 void	show_ms(t_ms *ms);
 void	show_ms_cs(t_ms *ms);
 void	a_to_b(t_ms *ms, t_prog *prog);
+void	b_to_a(t_ms *ms, t_prog *prog);
 void	move_top(t_ms *ms, t_prog *prog);
+void	sort_3(t_prog *prog);
 #endif

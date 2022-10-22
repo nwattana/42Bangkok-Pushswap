@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 06:18:59 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 20:31:51 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:42:43 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 			main_sort(prog);	
 		}
 	}
-/*	if (issort(prog->ta))
+	if (issort(prog->ta))
 	{
 		ft_printf("sorted\n");
 	}
@@ -40,8 +40,8 @@ int	main(int argc, char *argv[])
 	{
 		ft_printf("Nosort\n :(");
 		dump_prog(prog);
-	}*/
-//	ft_printf("ToTal action = %d\n",prog->total);
+	}
+	ft_printf("ToTal action = %d\n",prog->total);
 	prog_free(prog);
 	return (0);
 }

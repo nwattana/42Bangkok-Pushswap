@@ -6,17 +6,21 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:33:12 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/10 23:25:35 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:38:15 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
+// assign group chunk to each node
+//
 t_ch *assign_ch(t_prog *prog, int cs, int ngrp)
 {
 	t_ch *ch;
 	int		i;
+	int		remain;
 
+	remain = 2;
 	ch = ft_calloc(sizeof(t_ch), ngrp);
 	if (!ch)
 		return (NULL);
@@ -29,7 +33,7 @@ t_ch *assign_ch(t_prog *prog, int cs, int ngrp)
 		if (i == 0)
 			ch[i].lower = 1;
 		if (i == ngrp - 1)
-			ch[i].upper = prog->size - 1;
+			ch[i].upper = prog->size - remain;
 			if (ch[i].upper < ch[i].lower)
 				ch[i].lower = ch[i].upper;
 		ch[i].size = ch[i].upper - ch[i].lower;

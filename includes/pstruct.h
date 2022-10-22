@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 20:02:34 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/22 23:38:30 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,17 +97,15 @@ typedef struct	s_medium_sort
 	t_ch *ch;
 }		t_ms;
 
-
-typedef struct s_msaux
+typedef struct s_mt
 {
-	int	min;
-	int	xtrig;
-	int	ytrig;
-	int tog1;
-	int tog2;
-	int stop;
-	unsigned int loop;
-}		t_aux;
+	int c_inb;
+	int lim;
+	int top_a;
+	int top_b;
+	int tc;
+
+}		t_mt;
 
 typedef struct s_mtb
 {
@@ -115,9 +113,7 @@ typedef struct s_mtb
 	int top_a;
 	int top_b;
 	int active_ch;
-	int roll;
 	int	dir;
 }			t_mtb;
-
 
 #endif
