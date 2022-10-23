@@ -6,11 +6,12 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:53:26 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 09:51:04 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:43:21 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
 static int		count_grp(t_list *list);
 static void		mt_push_top(t_ms *ms, t_mt *mt, t_prog *prog);
 static void		mt_push_bot(t_ms *ms, t_mt *mt, t_prog *prog);
@@ -38,12 +39,11 @@ void	a_to_b(t_ms *ms, t_prog *prog)
 			action(ra, prog);
 		}
 	}
-
 }
 
 static void	mt_push_top(t_ms *ms, t_mt *mt, t_prog *prog)
 {
-	t_ch *ch;
+	t_ch	*ch;
 
 	ch = ms->ch;
 	action(pb, prog);
@@ -56,10 +56,9 @@ static void	mt_push_top(t_ms *ms, t_mt *mt, t_prog *prog)
 	mt->lim--;
 }
 
-// bot ch
 static void	mt_push_bot(t_ms *ms, t_mt *mt, t_prog *prog)
 {
-	t_ch *ch;
+	t_ch	*ch;
 
 	ch = ms->ch;
 	action(pb, prog);
@@ -81,8 +80,8 @@ static void	check_state(t_mt *mt, t_prog *prog)
 
 static int	count_grp(t_list *list)
 {
-	int grp;
-	int a;
+	int	grp;
+	int	a;
 
 	if (!list)
 		return (0);

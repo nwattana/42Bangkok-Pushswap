@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 06:18:59 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 00:42:43 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:30:05 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char *argv[])
 	t_prog	*prog;
 
 	prog = prog_init();
-	if (argc == 1 || (argc == 2 &&\
+	if (argc == 1 || (argc == 2 && \
 			ft_strlen(argv[1]) == 0) || !prog)
 	{
 		ft_printf("Something fail\n");
@@ -29,19 +29,9 @@ int	main(int argc, char *argv[])
 			prog->error = 2;
 		else
 		{
-			main_sort(prog);	
+			main_sort(prog);
 		}
 	}
-	if (issort(prog->ta))
-	{
-		ft_printf("sorted\n");
-	}
-	else
-	{
-		ft_printf("Nosort\n :(");
-		dump_prog(prog);
-	}
-	ft_printf("ToTal action = %d\n",prog->total);
 	prog_free(prog);
 	return (0);
 }

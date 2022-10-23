@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   program.c                                          :+:      :+:    :+:   */
+/*   dosort_small2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 04:38:10 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 10:59:15 by nwattana         ###   ########.fr       */
+/*   Created: 2022/10/23 11:17:53 by nwattana          #+#    #+#             */
+/*   Updated: 2022/10/23 11:18:15 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_prog	*prog_init(void)
+void	aact_a(t_act act, t_prog *prog)
 {
-	t_prog	*res;
-
-	res = (t_prog *)malloc(sizeof(t_prog));
-	if (!res)
-		return (NULL);
-	res->size = 0;
-	res->error = 0;
-	res->ta = NULL;
-	res->tb = NULL;
-	res->total = 0;
-	return (res);
+	prog->sres->sta[prog->sres->size_a] = act;
+	prog->sres->size_a += 1;
 }
 
-void	prog_free(t_prog *prog)
+void	aact_b(t_act act, t_prog *prog)
 {
-	if (prog->ta)
-		ft_lstclear(&prog->ta, free);
-	if (prog->tb)
-		ft_lstclear(&prog->tb, free);
-	free(prog);
+	prog->sres->stb[prog->sres->size_b] = act;
+	prog->sres->size_b += 1;
+}
+
+t_sres	*init_sres(void)
+{
+	t_sres	*sres;
+
+	sres = malloc(sizeof(t_sres));
+	if (!sres)
+		return (NULL);
+	sres->size_a = 0;
+	sres->size_b = 0;
+	sres->sta[0] = none;
+	sres->stb[0] = none;
+	return (sres);
 }

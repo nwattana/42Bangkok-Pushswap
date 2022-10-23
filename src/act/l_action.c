@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   l_action.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/23 10:57:01 by nwattana          #+#    #+#             */
+/*   Updated: 2022/10/23 10:57:42 by nwattana         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 void	l_action(t_act act, int n, t_prog *prog)
@@ -5,10 +17,9 @@ void	l_action(t_act act, int n, t_prog *prog)
 	int	i;
 
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
 		action(act, prog);
 		i++;
 	}
 }
-

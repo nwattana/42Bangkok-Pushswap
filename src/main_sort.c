@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 06:23:07 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 08:45:31 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:58:47 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	main_sort(t_prog *prog)
 {
-	UINT len;
+	unsigned int	len;
 
 	len = prog->size;
 	if (len == 2)

@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   program.c                                          :+:      :+:    :+:   */
+/*   content2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 04:38:10 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 10:59:15 by nwattana         ###   ########.fr       */
+/*   Created: 2022/10/23 11:27:10 by nwattana          #+#    #+#             */
+/*   Updated: 2022/10/23 11:28:20 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_prog	*prog_init(void)
+int	g_cont_grp(t_list *lst)
 {
-	t_prog	*res;
-
-	res = (t_prog *)malloc(sizeof(t_prog));
-	if (!res)
-		return (NULL);
-	res->size = 0;
-	res->error = 0;
-	res->ta = NULL;
-	res->tb = NULL;
-	res->total = 0;
-	return (res);
+	if (!lst)
+		return (-1);
+	return (((t_cont *)(lst->content))->grp);
 }
 
-void	prog_free(t_prog *prog)
+int	*ga_cont_grp(t_list *lst)
 {
-	if (prog->ta)
-		ft_lstclear(&prog->ta, free);
-	if (prog->tb)
-		ft_lstclear(&prog->tb, free);
-	free(prog);
+	if (!lst)
+		return (NULL);
+	return (&((t_cont *)(lst->content))->grp);
+}
+
+int	*ga_cont_data(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	return (&((t_cont *)(lst->content))->val);
+}
+
+int	g_cont_data(t_list *lst)
+{
+	if (!lst)
+		return (-1);
+	return (((t_cont *)(lst->content))->val);
 }

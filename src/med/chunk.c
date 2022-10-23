@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 09:34:33 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 23:51:13 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:41:10 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	is_inchunk(t_ms *ms, int n)
 
 int	is_chunk_mem(t_ch ch, int n)
 {
-	int upper;
-	int lower;
-	int bol;
+	int		upper;
+	int		lower;
+	int		bol;
 
 	bol = 0;
 	upper = ch.upper;

@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   program.c                                          :+:      :+:    :+:   */
+/*   action3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 04:38:10 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 10:59:15 by nwattana         ###   ########.fr       */
+/*   Created: 2022/10/23 10:54:01 by nwattana          #+#    #+#             */
+/*   Updated: 2022/10/23 10:54:50 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_prog	*prog_init(void)
+void	rx(t_list **ta)
 {
-	t_prog	*res;
+	t_list	*temp;
 
-	res = (t_prog *)malloc(sizeof(t_prog));
-	if (!res)
-		return (NULL);
-	res->size = 0;
-	res->error = 0;
-	res->ta = NULL;
-	res->tb = NULL;
-	res->total = 0;
-	return (res);
+	if (!ta || !(*ta) || !(*ta)->next)
+	{
+		ft_putstr_fd("NULL at rx\n", 2);
+		return ;
+	}
+	temp = pop(ta);
+	ft_lstlast(*ta)->next = temp;
 }
 
-void	prog_free(t_prog *prog)
+void	rrx(t_list **ta)
 {
-	if (prog->ta)
-		ft_lstclear(&prog->ta, free);
-	if (prog->tb)
-		ft_lstclear(&prog->tb, free);
-	free(prog);
+	t_list	*bf;
+	t_list	*ls;
+
+	if (!ta || !(*ta) || !(*ta)->next)
+	{
+		ft_putstr_fd("NULL at rrx", 2);
+		return ;
+	}
+	ls = *ta;
+	while (ls->next)
+	{
+		bf = ls;
+		ls = ls->next;
+	}
+	bf->next = NULL;
+	push(ta, ls);
 }

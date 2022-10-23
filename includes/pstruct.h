@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 09:52:10 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:33:32 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct s_q
 	UINT	size;
 }			t_q;
 
-
 /* stack stk
  * unsigned int size
  */
@@ -55,12 +54,18 @@ typedef struct s_st
 typedef enum e_act
 {
 	none,
-	pa,pb,
-	sa,sb,ss,
-	ra,rb,rr,
-	rra,rrb,rrr
+	pa,
+	pb,
+	sa,
+	sb,
+	ss,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr
 }		t_act;
-
 
 typedef struct s_sres
 {
@@ -74,49 +79,44 @@ typedef struct s_sth
 {
 	int	max;
 }		t_sth;
-// finish_a = all member chunk have move to b
-typedef struct	s_chunk_info
+
+typedef struct s_chunk_info
 {
 	int	index;
 	int	lower;
 	int	upper;
 	int	size;
-	// for b to a
 	int	inb;
-	int ina;
+	int	ina;
 	int	passb;
 	int	passa;
-
-	int min;
+	int	min;
 }			t_ch;
 
-// p_top Top chunk is process
-// p_bot bot chunk is process
-typedef struct	s_medium_sort
+typedef struct s_medium_sort
 {
-	int	last_p;
-	int	ngrp;
-	int	p_top;
-	int p_bot;
-	t_ch *ch;
+	int		last_p;
+	int		ngrp;
+	int		p_top;
+	int		p_bot;
+	t_ch	*ch;
 }		t_ms;
 
 typedef struct s_mt
 {
-	int c_inb;
-	int lim;
-	int top_a;
-	int top_b;
-	int tc;
-
+	int	c_inb;
+	int	lim;
+	int	top_a;
+	int	top_b;
+	int	tc;
 }		t_mt;
 
 typedef struct s_mtb
 {
 	int	lim;
-	int top_a;
-	int top_b;
-	int active_ch;
+	int	top_a;
+	int	top_b;
+	int	active_ch;
 	int	dir;
 }			t_mtb;
 

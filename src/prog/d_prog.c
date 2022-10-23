@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:23:39 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 14:56:38 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:00:24 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ void	dump_prog(t_prog *p)
 
 void	dump_g_all(t_prog *p)
 {
-	ft_putstr_fd("TA: ",1);
+	ft_putstr_fd("TA: ", 1);
 	dump_grp(p->ta);
 	ft_putchar_fd('\n', 1);
-	ft_putstr_fd("TB: ",1);
+	ft_putstr_fd("TB: ", 1);
 	dump_grp(p->tb);
 	ft_putchar_fd('\n', 1);
 }
 
 void	dump_node(t_list *st)
 {
-	if(!st)
+	if (!st)
 		return ;
 	ft_printf("PO : %d\n", g_cont_po(st));
 	ft_printf("Value : %d\n", g_cont_data(st));
@@ -52,7 +52,7 @@ void	dump_grp(t_list *st)
 	}
 	while (st)
 	{
-		ft_printf("%d => ",g_cont_grp(st));
+		ft_printf("%d => ", g_cont_grp(st));
 		st = st->next;
 	}
 }
@@ -61,12 +61,12 @@ void	dump_position(t_list *st)
 {
 	if (!st)
 	{
-		ft_putstr_fd("Empty\n",1);
+		ft_putstr_fd("Empty\n", 1);
 		return ;
 	}
 	while (st)
 	{
-		ft_printf("%d",g_cont_po(st));
+		ft_printf("%d", g_cont_po(st));
 		if (st->next != NULL)
 			ft_putstr_fd("->", 1);
 		st = st->next;

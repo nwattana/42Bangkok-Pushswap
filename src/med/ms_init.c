@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:33:46 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 23:53:27 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:33:42 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_ms	*ms_init(int cs, t_prog *prog)
 {
-	t_ms *ms;
+	t_ms	*ms;
 
 	ms = ft_calloc(sizeof(t_ms), 1);
 	if (!ms)
@@ -45,9 +45,9 @@ void	show_ms_cs(t_ms *ms)
 		return ;
 	}
 	i = 0;
-	while (i<ms->ngrp)
+	while (i < ms->ngrp)
 	{
-		ft_putstr_fd("\t\t===========\n",1);
+		ft_putstr_fd("\t\t===========\n", 1);
 		dump_ch(ms->ch[i++]);
 	}
 }

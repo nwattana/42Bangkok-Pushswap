@@ -6,34 +6,13 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 21:42:00 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 17:24:21 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:25:33 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-/*
- * 1 - 3
- * 4 - 6
- * 6 - 12 ??
- *
- */
-
-t_sres	*init_sres(void)
-{
-	t_sres *sres;
-
-	sres = malloc(sizeof(t_sres));
-	if (!sres)
-		return (NULL);
-	sres->size_a = 0;
-	sres->size_b = 0;
-	sres->sta[0] = none;
-	sres->stb[0] = none;
-	return (sres);
-}
-
-void so_small(t_prog *prog)
+void	so_small(t_prog *prog)
 {
 	prog->sres = init_sres();
 	if (!prog->sres)
@@ -52,7 +31,7 @@ void	sres_do(t_sres *res, t_prog *prog, t_act *a)
 
 	i = 0;
 	if (res->size_a == 0 && res->size_b == 0)
-			return ;
+		return ;
 	while (i < res->size_a)
 	{
 		if (a[i] == sa)
@@ -84,25 +63,9 @@ void	add3_sres(t_prog *prog)
 	}
 	else
 	{
-		if (g_cont_po(temp->next) == 1)
-			aact_a(ra, prog);
-		else
-		{
+		aact_a(ra, prog);
+		if (g_cont_po(temp->next) != 1)
 			aact_a(sa, prog);
-			aact_a(rra, prog);
-		}
 	}
 	aact_a(none, prog);
-}
-
-void	aact_a(t_act act, t_prog *prog)
-{
-	prog->sres->sta[prog->sres->size_a] = act;
-	prog->sres->size_a += 1;
-}
-
-void	aact_b(t_act act, t_prog *prog)
-{
-	prog->sres->stb[prog->sres->size_b] = act;
-	prog->sres->size_b += 1;
 }

@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:42:16 by nwattana          #+#    #+#             */
-/*   Updated: 2022/09/04 07:49:35 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:29:17 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	issort(t_list *s)
 {
-	int a;
-	int b;
+	int		a;
+	int		b;
 
 	if (s)
 		a = g_cont_po(s);

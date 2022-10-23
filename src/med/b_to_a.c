@@ -6,16 +6,15 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 22:23:19 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 10:09:33 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:40:38 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
 
 static void		mtb_push(t_ms *ms, t_prog *prog, t_mtb *mtb);
-static void		mtb_push_hold(t_ms *ms, t_prog *prog, t_mtb *mtb);
 static void		check_state(t_mtb *mtb, t_prog *prog);
 int				get_dir(t_mtb *mtb, t_prog *prog);
-int		check_free_s(t_prog *prog);
+int				check_free_s(t_prog *prog);
 
 void	b_to_a(t_ms *ms, t_prog *prog)
 {
@@ -51,7 +50,7 @@ int	get_dir(t_mtb *mtb, t_prog *prog)
 	int			lim;
 	t_list		*temp;
 	t_ch		ch;
-	int		find;
+	int			find;
 
 	lim = 0;
 	ch = prog->ms->ch[mtb->active_ch];
@@ -66,16 +65,6 @@ int	get_dir(t_mtb *mtb, t_prog *prog)
 	if (lim < ch.inb)
 		return (1);
 	return (0);
-}
-
-static void	mtb_push_hold(t_ms *ms, t_prog *prog, t_mtb *mtb)
-{
-	t_ch *ch;
-
-	action(pa, prog);
-	ch = ms->ch;
-	mtb->lim--;
-	pushto(0, &ch[mtb->active_ch]);
 }
 
 static void	mtb_push(t_ms *ms, t_prog *prog, t_mtb *mtb)
@@ -101,3 +90,15 @@ static void	check_state(t_mtb *mtb, t_prog *prog)
 	if (prog->ms->ch[mtb->active_ch].inb == 0 && mtb->active_ch > 0)
 		mtb->active_ch--;
 }
+
+/*
+static void		mtb_push_hold(t_ms *ms, t_prog *prog, t_mtb *mtb);
+static void	mtb_push_hold(t_ms *ms, t_prog *prog, t_mtb *mtb)
+{
+	t_ch *ch;
+
+	action(pa, prog);
+	ch = ms->ch;
+	mtb->lim--;
+	pushto(0, &ch[mtb->active_ch]);
+}*/

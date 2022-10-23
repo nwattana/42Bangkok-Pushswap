@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 10:35:23 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 08:24:45 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:56:20 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static void	sx_act(t_act act, t_prog *pr);
 
 void	action(t_act act, t_prog *prog)
 {
-		if (act >= ra && act <= rr)
-			rx_action(act, prog);
-		else if (act >= sa && act <= ss)
-			sx_act(act, prog);
-		else if (act >= pa && act <= pb)
-			px_action(act, prog);
-		else if (act >= rra && act <= rrr)
-			rrx_action(act, prog);
-		prog->total++;
+	if (act >= ra && act <= rr)
+		rx_action(act, prog);
+	else if (act >= sa && act <= ss)
+		sx_act(act, prog);
+	else if (act >= pa && act <= pb)
+		px_action(act, prog);
+	else if (act >= rra && act <= rrr)
+		rrx_action(act, prog);
+	prog->total++;
 }
 
 static void	rx_action(t_act act, t_prog *prog)
@@ -49,7 +49,6 @@ static void	rx_action(t_act act, t_prog *prog)
 		ft_putstr_fd("rr\n", 1);
 	}
 }
-
 
 static void	rrx_action(t_act act, t_prog *prog)
 {
@@ -90,6 +89,7 @@ static void	sx_act(t_act act, t_prog *pr)
 		swap(&pr->tb);
 	}
 }
+
 static void	px_action(t_act act, t_prog *pr)
 {
 	if (act == pa)

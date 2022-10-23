@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/10/23 00:37:28 by nwattana         ###   ########.fr        #
+#    Updated: 2022/10/23 11:52:18 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,21 @@ NAME= push_swap
 NSRC= ./src/push_swap.c
 
 ACT= ./src/act/action.c ./src/act/action2.c \
-	 ./src/act/l_action.c
+	 ./src/act/l_action.c ./src/act/action3.c
 PROG= ./src/prog/program.c
 
 DEB= ./src/prog/d_prog.c ./src/put_aint.c
-CONT = ./src/content/content.c
+CONT = ./src/content/content.c \
+	   ./src/content/content2.c
 
-INPUT=./src/input/input.c ./src/input/input2.c
+INPUT=	./src/input/input.c ./src/input/input2.c
 SORT = ./src/main_sort.c ./src/issort.c
 
-SMALL= ./src/small/dosort_small.c ./src/small/small.c
+SMALL= ./src/small/dosort_small.c \
+		./src/small/dosort_small2.c \
+	   	./src/small/small.c \
+	   	./src/small/small2.c
+
 MED = ./src/med/medium.c \
 	  ./src/med/assign_ch.c\
 	  ./src/med/ms_init.c\
@@ -36,10 +41,10 @@ MED = ./src/med/medium.c \
 
 SRC=$(PROG)	$(INPUT) $(DEB) $(CONT) \
 	$(ACT) $(SORT) $(SMALL) \
-	$(MED) $(AUX)
+	$(MED) 
 
 CC = clang
-CFLAG = 
+CFLAG = -Wall -Wextra -Werror
 ILIB = -iquote ./printf/includes\
 	   -iquote ./printf/libft\
 	   -iquote ./includes
@@ -51,10 +56,10 @@ GREEN=\033[32m
 MAGENTA=\033[1;35m
 ENDC=\033[39m
 
-all: greeting
+all: ps
 
 ps: lib
-	$(CC) $(CFLAG) $(ILIB) $(SRC) $(NSRC) $(LIB) -o push_swap_test
+	$(CC) $(CFLAG) $(ILIB) $(SRC) $(NSRC) $(LIB) -o $(NAME)
 
 maintest:
 	@printf "$(RED)=======================MAINTEST=======================$(ENDC)\n"
@@ -87,5 +92,14 @@ testps:
 
 lib:
 	make -C ./printf
+
+clean:
+	make -C ./printf clean
+
+fclean: clean
+	make -C ./printf fclean
+	rm -rf $(NAME)
+
+re: fclean all
 
 .PHONY: all maintest greeting testlib ps

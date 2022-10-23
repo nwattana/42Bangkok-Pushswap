@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 00:23:39 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 00:37:05 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:26:18 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
@@ -25,7 +25,7 @@ void	sort_3(t_prog *prog)
 		if (g_cont_po(prog->ta->next) == max)
 			action(rra, prog);
 		else if (g_cont_po(prog->ta->next) == max - 2)
-			action(sa, prog);	
+			action(sa, prog);
 	}
 	else if (g_cont_po(prog->ta) == max - 2)
 	{
@@ -39,8 +39,8 @@ void	sort_3(t_prog *prog)
 
 static int	findmax_po(t_list *lst)
 {
-	int max;
-	int lim;
+	int		max;
+	int		lim;
 
 	max = -1;
 	lim = 3;

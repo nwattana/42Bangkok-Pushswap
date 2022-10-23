@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 08:26:14 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 17:24:18 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:05:06 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,17 @@ void	small(t_prog *prog)
 	if (!prog->error)
 	{
 		add_sep(prog);
-		//dump_p(prog);
 		ssort_a(ft_lstsize(prog->ta), prog);
 		ssort_b(ft_lstsize(prog->tb), prog);
 		merge_act(prog->sres, prog);
 		while (ft_lstsize(prog->tb))
-		{
 			action(pa, prog);
-		}
 	}
 }
 
 void	add_sep(t_prog *prog)
 {
-	int middle;
+	int		middle;
 
 	middle = prog->size / 2;
 	while (ft_lstsize(prog->tb) != middle)
@@ -77,7 +74,7 @@ void	do_bcase(t_list *tb, int max, t_prog *prog)
 		if (g_cont_po(tb->next) == max - 2)
 			aact_b(rrb, prog);
 		else
-			aact_b(sb, prog);	
+			aact_b(sb, prog);
 	}
 	else
 	{
@@ -93,12 +90,12 @@ void	do_bcase(t_list *tb, int max, t_prog *prog)
 
 void	ssort_a(int size, t_prog *prog)
 {
-//	ft_printf("Do something\n");
 	int	max;
+
 	if (size == 2)
 	{
 		if (g_cont_po(prog->ta) > g_cont_po(prog->ta->next))
-				aact_a(sa, prog);
+			aact_a(sa, prog);
 	}
 	else
 	{
@@ -106,83 +103,4 @@ void	ssort_a(int size, t_prog *prog)
 		do_acase(prog->ta, max, prog);
 	}
 	aact_a(none, prog);
-
-}
-
-void	do_acase(t_list *ta, int max, t_prog *prog)
-{
-//	ft_printf("%d == %d\n", g_cont_po(ta), max);
-//	ft_printf("%d == %d\n", g_cont_po(ta->next), max);
-	if (g_cont_po(ta)  == max)
-	{
-		if (g_cont_po(ta->next) == max - 1)
-		{
-			aact_a(sa,prog);
-			aact_a(rra, prog);
-		}
-		else
-			aact_a(ra, prog);
-	}
-	else if (g_cont_po(ta) == max - 2)
-	{
-		if (g_cont_po(ta->next) == max)
-		{
-			aact_a(sa, prog);
-			aact_a(ra, prog);
-		}
-	}
-	else
-	{
-		if (g_cont_po(ta->next) == max)
-			aact_a(rra, prog);
-		else
-			aact_a(sa, prog);
-	}
-}
-
-int		find_max(t_list *lst, int size)
-{
-	int	temp;
-
-	if (!lst)
-		return (0);
-	temp = g_cont_po(lst);
-	while (lst && size--)
-	{
-		if (temp < g_cont_po(lst))
-				temp = g_cont_po(lst);
-		lst = lst->next;
-	}
-	return (temp);
-}
-
-void	merge_act(t_sres *res, t_prog *prog)
-{
-	int i;
-	int j;
-
-	j = 0;
-	i = 0;
-	while (res->sta[i] != none)
-	{
-		if (res->stb[j] != none && res->sta[i] + 1 == res->stb[j])
-		{
-			if (res->stb[j] == sb)
-				action(ss, prog);
-			if (res->stb[j] == rb)
-				action(rr, prog);
-			if (res->stb[j] == rrb)
-				action(rrr, prog);
-			j++;
-		}
-		else
-		{
-			action(res->sta[i] , prog);
-		}
-		i++;
-	}
-	while (res->stb[j] != none)
-	{
-		action(res->stb[j++], prog);
-	}
 }
