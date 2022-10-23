@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 05:41:49 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/22 23:38:30 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 09:52:10 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ typedef struct s_sres
 	UINT	size_b;
 }			t_sres;
 
+typedef struct s_sth
+{
+	int	max;
+}		t_sth;
 // finish_a = all member chunk have move to b
 typedef struct	s_chunk_info
 {

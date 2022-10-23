@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:51:26 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 00:47:33 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 09:51:31 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,13 @@ void	medium(int cs, t_prog *prog)
 		return ;
 	add_grp(prog, prog->ms);
 	a_to_b(prog->ms, prog);
+	ft_putstr_fd("Move top\n", 1);
 	move_top(prog->ms, prog);
+	ft_putstr_fd("Sort 3\n", 1);
 	sort_3(prog);
-//	temp_swap_top(prog); /// wait for change to sort 3 if enough time
-//	dump_prog(prog);
-//	b_to_a(prog->ms, prog);
-//	dump_g_all(prog);
-}
-
-void	temp_swap_top(t_prog *prog)
-{
-	int		mode;
-
-	mode = 0;
-	if (g_cont_po(prog->ta) == prog->size)
-	{
-		action(sa, prog);
-	}
+	ft_putstr_fd("B_to_A\n",1);
+	b_to_a(prog->ms, prog);
+	dump_g_all(prog);
 }
 
 void	add_grp(t_prog *prog, t_ms *ms)

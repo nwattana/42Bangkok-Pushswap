@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:53:26 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 00:46:55 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 09:51:04 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@ static void		check_state(t_mt *mt, t_prog *prog);
 
 void	a_to_b(t_ms *ms, t_prog *prog)
 {
-//	ft_putstr_fd("let a_to_b\n", 1);
-
 	t_mt	mt;
 
 	mt.c_inb = 0;
 	mt.lim = ft_lstsize(prog->ta) - 3;
 	while (mt.lim > 0)
 	{
-	//	dump_g_all(prog);
 		check_state(&mt, prog);
 		if (mt.top_a == ms->p_bot)
 		{
@@ -40,9 +37,6 @@ void	a_to_b(t_ms *ms, t_prog *prog)
 		{
 			action(ra, prog);
 		}
-	//	dump_g_all(prog);
-	//	usleep(100000);
-	ft_printf("lim %d top :%d  bot ch :%d  top ch :%d\n", mt.lim ,mt.top_a, ms->p_bot, ms->p_top);
 	}
 
 }
