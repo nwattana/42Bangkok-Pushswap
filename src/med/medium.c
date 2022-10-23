@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:51:26 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 10:39:16 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:19:06 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	medium(int cs, t_prog *prog)
 	move_top(prog->ms, prog);
 	sort_3(prog);
 	b_to_a(prog->ms, prog);
+	ms_exit(prog->ms);
 }
 
 void	add_grp(t_prog *prog, t_ms *ms)

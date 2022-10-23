@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:33:46 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 10:33:42 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:19:09 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,13 @@ void	show_ms_cs(t_ms *ms)
 		ft_putstr_fd("\t\t===========\n", 1);
 		dump_ch(ms->ch[i++]);
 	}
+}
+
+void	ms_exit(t_ms *ms)
+{
+	if (!ms)
+		return ;
+	if (ms->ch)
+		free(ms->ch);
+	free(ms);
 }

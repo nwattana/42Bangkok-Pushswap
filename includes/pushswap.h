@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 04:33:35 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 11:46:48 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:18:43 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,5 @@ void		a_to_b(t_ms *ms, t_prog *prog);
 void		b_to_a(t_ms *ms, t_prog *prog);
 void		move_top(t_ms *ms, t_prog *prog);
 void		sort_3(t_prog *prog);
+void		ms_exit(t_ms *ms);
 #endif

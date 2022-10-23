@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 08:33:12 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 10:50:17 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:39:39 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_ch	*assign_ch(t_prog *prog, int cs, int ngrp)
 	int		remain;
 
 	remain = 2;
-	ch = ft_calloc(sizeof(t_ch), ngrp);
+	ch = ft_calloc(sizeof(t_ch),  ngrp + 1);
 	if (!ch)
 		return (NULL);
 	i = 0;
