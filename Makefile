@@ -6,7 +6,7 @@
 #    By: nwattana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/02 03:36:49 by nwattana          #+#    #+#              #
-#    Updated: 2022/10/23 11:52:18 by nwattana         ###   ########.fr        #
+#    Updated: 2022/10/23 12:07:39 by nwattana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,39 +56,12 @@ GREEN=\033[32m
 MAGENTA=\033[1;35m
 ENDC=\033[39m
 
-all: ps
+all: $(NAME)
+
+$(NAME): ps
 
 ps: lib
 	$(CC) $(CFLAG) $(ILIB) $(SRC) $(NSRC) $(LIB) -o $(NAME)
-
-maintest:
-	@printf "$(RED)=======================MAINTEST=======================$(ENDC)\n"
-	@make -C ./printf
-	@$(CC) $(CFLAG) $(ILIB) main_test.c $(LIB) -o test_main
-
-greeting: 
-	@clear
-	@printf "====================================================\n"
-	@printf "====================================================\n"
-	@printf "\t$(RED)HELLO!!$(ENDC) Welcome To $(MAGENTA)$(NAME)$(ENDC)\n"
-	@printf "====================================================\n"
-	@printf "====================================================\n"
-	@git log --oneline --graph --all -n10
-	@printf "====================================================\n"
-	@printf "You are on\n" 
-	@git branch
-
-testlib: lib
-	@printf "====================================================\n"
-	@make -C ./printf
-	@$(CC) $(CFLAG) $(CLIB) testlib.c $(LIB) -o test_lib
-	@printf "$(RED)=======================RESULT=======================$(ENDC)\n"
-	@./out
-	@printf "====================================================\n"
-	@-rm out
-
-testps:
-	ARG="5 4 3 1 2"; ./push_swap_test $(ARG) | ./checker_Mac $(ARG)
 
 lib:
 	make -C ./printf
@@ -102,4 +75,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all maintest greeting testlib ps
+.PHONY: all ps clean re fclean lib
