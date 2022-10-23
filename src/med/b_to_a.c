@@ -6,7 +6,7 @@
 /*   By: nwattana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 22:23:19 by nwattana          #+#    #+#             */
-/*   Updated: 2022/10/23 10:40:38 by nwattana         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:00:13 by nwattana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
@@ -61,7 +61,6 @@ int	get_dir(t_mtb *mtb, t_prog *prog)
 		temp = temp->next;
 		lim++;
 	}
-	ft_printf("%d %d\n", ch.inb, lim);
 	if (lim < ch.inb)
 		return (1);
 	return (0);
